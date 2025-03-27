@@ -1,0 +1,8 @@
+File: Pagedata\Page_ECC\RRAMpage_SUBIP2.txt, Line: 410, Column: 237, Char: 10
+File: Pagedata\Page_ECC\RRAMpage_SUBIP2.txt, Line: 410, Column: 239, Char: 04
+Pagedata\Page_ECC\RRAMpage_SUBIP2.txt has 2 error(s)
+File: Pagedata\Page_ECC\RRAMpage_SUBIP5.txt, Line: 589, Column: 225, Char: 20
+File: Pagedata\Page_ECC\RRAMpage_SUBIP5.txt, Line: 589, Column: 226, Char: 24
+File: Pagedata\Page_ECC\RRAMpage_SUBIP5.txt, Line: 1095, Column: 1, Char: 40
+File: Pagedata\Page_ECC\RRAMpage_SUBIP5.txt, Line: 1095, Column: 2, Char: 0C
+Pagedata\Page_ECC\RRAMpage_SUBIP5.txt has 4 error(s)

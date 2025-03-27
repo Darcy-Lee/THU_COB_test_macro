@@ -544,7 +544,7 @@ def test7_3_WriteBinFile(filepath, target_ip=0):
 
     # Trimtable = TrimTable('AA88045D5DA2A84A6F7F409A560F0F204210', 'hex')
     Trimtable = TrimTable('AA88045D5DA2A84A6F7F409A560F0F204210', 'hex')
-    Trimtable.set_trimtable(IBIAS_str='011', IBLC_str='1010', RDREF_str='101010',
+    Trimtable.set_trimtable(IBIAS_str='100', IBLC_str='1011', RDREF_str='101001',
                             FORMVFY_str='100011', LRVFY_str='100011', HRVFY_str='110010')
 
     print(Trimtable.data_hex)

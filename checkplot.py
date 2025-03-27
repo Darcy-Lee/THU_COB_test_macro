@@ -26,15 +26,15 @@ class ErrorMatrix:
 def read_files_and_collect_errors():
     error_matrix = ErrorMatrix()
     for subip in range(8):
-        filename = f'Pagedata\\RRAMpage_SUBIP{subip}.txt'
+        filename = f'Pagedata\\Page_ECC_ID10\\RRAMpage_SUBIP{subip}.txt'
         with open(filename, 'r') as file:
             lines = file.readlines()
             for line_num, line in enumerate(lines):
                 bytes_values = line.split()
                 for col_num, byte in enumerate(bytes_values):
                     # if byte not in {'00', 'FF'}:
-                    if byte not in {'00'}:
-                    # if byte not in {'FF'}:
+                    # if byte not in {'00'}:
+                    if byte not in {'FF'}:
                         error_matrix.add_error(line_num, col_num, subip)
     return error_matrix
 

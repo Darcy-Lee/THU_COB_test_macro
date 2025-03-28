@@ -1,0 +1,225 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>I2C监控软件使用教程</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(28);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=软件使用/I2C监控软件使用教程.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="USB2IIC软件使用说明教程.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="功耗分析仪软件使用教程.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="软件使用.htm">软件使用</A> &gt; </div>
+<div id="winchm_template_title">I2C监控软件使用教程</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+  <LI>
+<DIV><STRONG><A href="#前言">前言</A></STRONG></DIV></LI>
+  <LI>
+<DIV><STRONG><A href="#硬件连接">硬件连接</A></STRONG></DIV></LI>
+  <LI>
+<DIV><STRONG><A 
+href="#软件使用">软件使用</A></STRONG></DIV></LI></UL>
+<P>
+<HR>
+
+<P></P>
+<H1><A name=前言>前言</A></H1>
+<P>USB2XXX的I2C监控功能是基于USB2XXX的并口读取数据功能实现的，USB2XXX的并口可以连续不断的接收数据到上位机端，然后上位机端根据读取到的数据进行分析处理，最终解析出I2C总线数据，然后在上位机软件界面上显示出来。</P>
+<P>因为USB2XXX适配器并不会解析数据，它只做数据采集功能，利用PC的强大数据处理能力，可以将原始的高低电平解析出I2C协议的数据，底层数据采集和数据分析处理采用2个独立的线程实现，这样可以保证数据不会被丢失。</P>
+<H1>
+<HR>
+</H1>
+<H1><A name=硬件连接>硬件连接</A></H1>
+<P>USB2XXX的引脚定义可以参考《<A 
+href="../引脚定义说明文档.htm">引脚定义说明文档</A>》，硬件连接示意图如下所示：</P>
+<P><IMG alt="" src="../图片/IICSniffer/IICSniffer硬件连接图.png"></P>
+<P>注意：I2C监控功能跟I2C适配功能接线是不一样的，I2C监控功能使用的是D0到D7引脚，对于不带外壳的板子，D0到D7在双排排针测，电路板上有丝印。对于带外壳版本的，D0到D7是跟P0到P7共用的，所以在接线的时候需要注意下，另外为了保证数据的可靠性传输，被监控端的电源GND跟我们USB2XXX的GND也必须接一起。</P>
+<P>
+<HR>
+
+<P></P>
+<H1><A name=软件使用>软件使用</A></H1>
+<P>点击软件集合中的“I2C监控器”即可启动I2C监控软件，如下图所示：</P>
+<P><IMG alt="" src="../图片/IICSniffer/I2C_SNIFFER_MAIN_START.png"></P>
+<P>软件启动后的主界面如下图所示：</P>
+<P><IMG alt="" src="../图片/IICSniffer/I2C_SNIFFER_MAIN.png"></P>
+<H2>启动设置</H2>
+<P>点击软件上的“操作”-&gt;“启动”按钮即可弹出启动设置界面，如下图所示：</P>
+<P><IMG alt="" src="../图片/IICSniffer/I2C_Sniffer_Start.png"></P>
+<P><STRONG>设备号：</STRONG>选择当前连接到电脑上的USB2XXX设备，若此处没有显示可以选择的设备，则可能电脑没有连接USB2XXX设备或者是设备驱动没有被正确识别。</P>
+<P><STRONG>通道号：</STRONG>我们使用并口的D0和D1两个引脚接入I2C总线，所以通道号选择为0，若使用了并口的D2和D3，则通道号选择为1，以此类推。</P>
+<P><STRONG>采样率：</STRONG>采样率设置一般大于I2C总线速率的4倍即可，我们选择5MHz，基本上已经可以采集高达1Mbps速度的I2C总线数据了。</P>
+<P><STRONG>总线电压：</STRONG>选择当前总线高电平电压，该设置选项只针对带外壳版本的适配器有效，不带外壳版本的适配器只能监控3.3V以上电压的I2C总线。</P>
+<P><STRONG>显示模式：</STRONG>选择抓取到总线数据后，在主界面上显示的模式，选择“详细”则可以显示I2C数据传输的所有数据，包括START,STOP等信号，若选择“简单”模式，则只显示解析到的数据。</P>
+<P><STRONG>显示地址：</STRONG>此处留空，则显示总线上的所有数据，若填某个具体的从机地址值，则在主界面只显示跟这个从机相关的数据。</P>
+<P>设置好之后点击“确定”按钮即可启动I2C监控功能。</P>
+<H2>监控数据</H2>
+<P>启动I2C监控之后，我们并不需要在软件上做什么操作，当I2C总线上有数据之后，在软件界面上会以列表的形式显示监控到的数据，数据缓存是以文件方式缓存，所以能缓存数据的大小仅仅取决于你硬盘的容量，若你硬盘容量够大，你完全不用担心数据缓存的问题。</P>
+<P>接收到数据之后如下图所示：</P>
+<P><IMG alt="" src="../图片/IICSniffer/I2C_Sniffer_GetData.png"></P>
+<P><STRONG>行号：</STRONG>表示当前解析到的I2C数据在缓存文件中对应的行数，可以不用管。</P>
+<P><STRONG>类型：</STRONG>表示当前行数据的类型，I2C总线总共4种类型，起始（START），地址（ADDR），数据（DATA），停止（STOP）。</P>
+<P><STRONG>地址：</STRONG>表示当前行数据对应的设备地址，比如当前行为一个普通的数据，这个数据对应的设备地址即为该列对应的值。</P>
+<P><STRONG>读/写：</STRONG>指示当前数据传输的方向，若是主机向从机传输数据，则为写，若是从机向主机传输数据，则为读。</P>
+<P><STRONG>数据(HEX)：</STRONG>具体的数据十六进制，也就是除了设备地址之外的数据，这个数据有可能是寄存器地址，也可能是寄存器对应的值。</P>
+<P><STRONG>数据(ASCII)：</STRONG>具体的数据ASCII码，也就是将数据转换为ASCII进行显示，对于不能显示的字符用圆点来显示。</P>
+<P><STRONG>响应：</STRONG>当前数据最后一个脉冲读到的SDA信号是高电平还是低电平，若是高电平则显示“NACK”，反之显示“ACK”。</P>
+<P><STRONG>时间戳：</STRONG>接收到当前数据时对应的时间戳。</P>
+<H2>解析设置</H2>
+<P>很多时候，为了方便阅读，我们希望数据自动转换为我们预先定义好的字符串，而不是冷冰冰的十六进制数据，这对于I2C总线协议的分析会有很大的帮助，比如解析SMBus或者PMBus协议，目前该软件需要自己添加协议文件，后面我们会提供很多已经配置好的协议解析文件，点击软件的“操作”-&gt;“配置协议解析”按钮即可打开协议配置界面，如下图所示：</P>
+<P><IMG alt="" src="../图片/IICSniffer/I2C_Sniffer_DecodeSetting.png"></P>
+<P><STRONG>字符串：</STRONG>这里设置我们解析到相应的数据之后，在主界面需要显示的字符串，这个字符串是方便我们自己阅读数据，所以按照自己对协议的理解写入字符串即可。</P>
+<P><STRONG>类型：</STRONG>指显示字符串时，匹配的数据的数据类型，数据类型有两个可选，ADDR和DATA，若选择了DATA，还需要设置解析对应的具体数值。</P>
+<P><STRONG>数据(HEX)：</STRONG>当类型设置为DATA时，需要设置具体的数据值。</P>
+<P><STRONG>显示偏移：</STRONG>也就是数据匹配之后，字符串应该在匹配数据之后的多少行进行显示，比如我们要将24C02的任意子地址显示为“EEPROM子地址”字符串，那么我们匹配的数据就是24C02的设备地址，它之后偏移一行就是子地址，所以该偏移量设置为1。</P>
+<P><STRONG>读/写：</STRONG>指示当前需要解析显示的数据是主机发送的数据还是从机发送的数据，若是主机发送的数据则为WRITE，否则为READ。</P>
+<P><STRONG>地址(HEX)：</STRONG>指示当前需要解析显示的数据对应的从机地址，该地址为7bit模式地址。</P>
+<H2>解析模式监控数据</H2>
+<P>配置好协议解析列表文件之后，我们就可以以协议解析的模式进行显示数据了，点击软件的“操作”-&gt;“开启协议解析”即可开启协议解析功能，当新解析到I2C总线的数据之后，就会根据协议解析配置文件解析显示数据，如下图所示：</P>
+<P><IMG alt="" src="../图片/IICSniffer/I2C_Sniffer_DecodeDisplay.png"></P>
+<P>在“数据(Hex)”栏目，“[]”内的字符串就是协议解析之后显示的字符串，这对芯片协议分析是非常有帮助的！</P>
+<H2>合并模式显示数据</H2>
+<P>有时候数据若比较多，若每一个数据都显示一行，数据会比较分散，这时我们就可以使用合并显示数据模式显示数据，这样类似操作的数据就会合并显示在一行以内，点击软件的“操作”-&gt;“合并显示”即可开启合并显示功能，如下图所示：</P>
+<P><IMG alt="" src="../图片/IICSniffer/I2C_Sniffer_MergeDisplay.png"></P>
+<P>注意：合并显示模式下不能进行协议解析，当开启合并显示模式之后，合并显示功能会自动关闭。</P>
+<P>&nbsp;</P></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

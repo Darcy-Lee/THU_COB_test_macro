@@ -1,0 +1,188 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>2.1 启动CAN总线</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+
+
+
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(35);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../index.htm?page=软件使用/TCANLINPro软件使用教程/启动CAN总线.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="设备管理.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../../template1/btn_prev_n.gif" border="0"></a><A href="启动LIN总线.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="../软件使用.htm">软件使用</A> &gt; <A href="TCANLINPro软件使用教程.htm">TCANLINPro软件使用教程</A> &gt; <A href="设备管理.htm">2. 设备管理</A> &gt; </div>
+<div id="winchm_template_title">2.1 启动CAN总线</div>
+<div id="winchm_template_content">
+<H3>2.1 启动CAN总线</H3>
+<H4>2.1.1 CAN波特率参数设置</H4>
+<P>点击对应CAN通道后面的【启动】按钮，软件会弹出CAN总线参数配置界面，如下图所示：</P>
+<P><IMG alt="" src="../../图片/TCANLINPro软件截图/CAN启动设置.png"></P>
+<P><STRONG>1. 
+总线协议：</STRONG>若适配器支持CANFD，则可以选择【CANFD】，否则默认为【CAN】，CAN兼容于CANFD，所以是带CANFD的设备，默认选择【CANFD】即可；</P>
+<P><STRONG>2. 
+CANFD标准</STRONG>：根据实际情况选择【Non ISO】或者【CANFD ISO】；</P>
+<P><STRONG>3. 
+工作模式</STRONG>：若需要向CAN总线进行真实的数据收发，则选择【正常模式】，若只是测试验证我们软件功能，可以选择【自发自收】模式，注意，【自发自收】模式下不能向CAN总线接收或者发送数据；</P>
+<P><STRONG>4. 
+终端电阻：</STRONG>若总线上没有额外的120欧终端电阻，则需要在此选择【使能】，若不需要接入终端电阻，这选择【禁止】即可；</P>
+<P><STRONG>5. 
+仲裁域波特率：</STRONG>普通的CAN只需要设置仲裁域波特率即可，可以在波特率表里面选择对应的波特率，若里面没有需要的波特率，可以点击【波特率计算器】按钮弹出波特率计算器界面，在这个界面里面设置好需要的波特率后可以自动计算出多组波特率参数供选择；</P>
+<P><STRONG>6. 
+数据域波特率：</STRONG>若是使用的CANFD设备，且要实现数据域加速功能，则还需要设置数据域波特率，设置方法跟仲裁域波特率设置类似；</P>
+<P><STRONG>7. 
+探测波特率：</STRONG>若不清楚总线波特率，可以点击【探测波特率】按钮探测当前总线波特率，不管总线是否有数据传输，都可以探测波特率；</P>
+<P>点击【确定】后即可启动CAN总线，若没有警告提示，则是成功启动了CAN总线，启动CAN总线之后就可以进行后续的数据收发功能。</P>
+<H4>
+<HR>
+2.1.2 CAN波特率参数计算</H4>
+<P>若需要设置的波特率不在可选列表中，则可以点击【波特率计算器】打开波特率计算器，自动计算需要的波特率参数。</P>
+<P><IMG alt="" src="../../图片/TCANLINPro软件截图/CAN波特率计算器.png"></P>
+<P>【CAN时钟】会根据当前接入的适配器自动填入正确的值，不用去修改它，【波特率】填入需要的CAN波特率值，单位为Kbps，然后设置好采样点和误差范围，点击【计算】，列表中就会罗列出满足条件的波特率参数，双击对应行就会自动返回CAN参数配置界面，并将当前参数自动填入设置界面。</P>
+<H4>
+<HR>
+2.1.3 CAN波特率自动识别</H4>
+<P>点击【探测波特率】后，会弹出如下界面：</P>
+<P><IMG alt="" src="../../图片/TCANLINPro软件截图/CAN波特率探测.png"></P>
+<P>【快速探测】是用常规使用的波特率去探测总线波特率，大多数情况下使用该模式探测即可，若该模式探测不到，可以使用【精确探测】，弹出出来波特率之后，双击波特率参数行即可自动返回CAN参数配置界面，并将当前波特率值自动填入参数配置界面。</P>
+<P>&nbsp;</P></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

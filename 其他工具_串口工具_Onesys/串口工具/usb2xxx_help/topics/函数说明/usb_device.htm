@@ -1,0 +1,1757 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>usb_device</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(6);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=函数说明/usb_device.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="函数说明.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="usb2gpio.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="函数说明.htm">函数说明</A> &gt; </div>
+<div id="winchm_template_title">usb_device</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+  <LI>
+<DIV><STRONG><A href="#概述">概述</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#USB_ScanDevice">USB_ScanDevice</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#USB_OpenDevice">USB_OpenDevice</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#USB_CloseDevice">USB_CloseDevice</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#DEV_GetDeviceInfo">DEV_GetDeviceInfo</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#DEV_EraseUserData">DEV_EraseUserData</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#DEV_WriteUserData">DEV_WriteUserData</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#DEV_ReadUserData">DEV_ReadUserData</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#DEV_SetPowerLevel">DEV_SetPowerLevel</A></STRONG></DIV></LI></UL>
+<H1>
+<HR></H1>
+<H1><A name=概述>概述</A></H1>
+<P>本文介绍USB2XXX设备操作相关函数，有些函数在进行二次开发时是必须要被调用的，因此若要使用USB2XXX的API接口函数进行二次开发，必须了解下这些函数的基本功能和使用方法。</P>
+<P><STRONG>下面是本文函数可能用到的一些宏定义：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//定义设备信息</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">typedef</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;</SPAN><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >struct</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;_DEVICE_INFO&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >{&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;FirmwareName[32];&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//固件名称字符串</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;BuildDate[32];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;</SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//固件编译时间字符串</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HardwareVersion;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//硬件版本号</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FirmwareVersion;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;</SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//固件版本号</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SerialNumber[3];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//适配器序列号</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Functions;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;</SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//适配器当前具备的功能</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}DEVICE_INFO,*PDEVICE_INFO;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//定义电压输出值</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_NONE&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;//不输出</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_1V8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;//输出1.8V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_2V5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;//输出2.5V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_3V3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;//输出3.3V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_5V0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;//输出5.0V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<HR>
+
+<H1><FONT color=#000000><A 
+name=USB_ScanDevice><FONT color=#000000>USB_ScanDevice</FONT></A></FONT></H1>
+<P><FONT size=3><STRONG>描述：</STRONG></FONT></P>
+<P><FONT size=3>扫描当前连接到电脑上的USB2XXX设备，同时通过pDevHandle返回每个设备的设备号，利用该设备号可以分别控制不同的设备。函数返回当前连接到电脑上的USB2XXX设备数量。</FONT></P>
+<P><FONT size=3><STRONG>原型：</STRONG></FONT></P><FONT size=3><FONT style="BACKGROUND-COLOR: #f5f5f5" color=#808080 size=2 face=Consolas>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><FONT style="BACKGROUND-COLOR: #ffffff"   ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#ifdef&nbsp;OS_ANDROID</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></FONT></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><FONT style="BACKGROUND-COLOR: #ffffff"   ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;WINAPI&nbsp;USB_ScanDevice(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pDevHandle,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;fd);&nbsp;&nbsp;</SPAN></FONT></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><FONT style="BACKGROUND-COLOR: #ffffff"   ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></FONT></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><FONT style="BACKGROUND-COLOR: #ffffff"   ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;WINAPI&nbsp;USB_ScanDevice(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pDevHandle);&nbsp;&nbsp;</SPAN></FONT></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><FONT style="BACKGROUND-COLOR: #ffffff"   >#endif</FONT></SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN></LI></OL></FONT></FONT>
+<P><FONT size=3><STRONG>参数：</STRONG></FONT></P>
+<P><FONT size=3><FONT color=#808000><FONT color=#008080>pDevHandle&nbsp;</FONT> 
+</FONT>返回每个设备唯一不变的设备号指针，以后对设备的任何操作都必须传入该设备号，注意每个设备的设备号都是不同的，所以在对设备进行任何操作之前都必须调用该函数获得其设备号。</FONT></P>
+<P><FONT color=#808000 size=3><FONT color=#008080>fd</FONT> <FONT color=#000000>该参数是在安卓系统下用JNA调用我们的函数需要传入的参数，fd的获取方式可以参考我们提供的安卓版本二次开发范例程序源码。</FONT></FONT></P>
+<P><FONT size=3><STRONG>返回值：</STRONG></FONT></P>
+<P><FONT size=3>当前连接到电脑的设备数量，若返回值小于0，则调用该函数出错。</FONT></P>
+<P><FONT size=3><STRONG>示例：</STRONG></FONT></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle[20];</SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//假设当前最多连接的设备不超过20个</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >ret&nbsp;=&nbsp;USB_ScanDevice(DevHandle);&nbsp;&nbsp;</SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;&lt;=&nbsp;0){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"无设备连接!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >{&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"当前连接的设备数为：%d\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,ret);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"每个设备的句柄为：\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >for</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;i=0;i&lt;ret;i++){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"DevHandle[%d]&nbsp;=&nbsp;%d\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,i,DevHandle[i]);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<H1>
+<HR>
+</H1>
+<H1><A name=USB_OpenDevice><FONT color=#000000>USB_OpenDevice</FONT></A></H1>
+<P><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial><STRONG>描述：</STRONG></FONT></CODE></P>
+<P><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial>打开设备，必须调用该函数，否则后续函数调用无法成功。</FONT></CODE></P>
+<P><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial><STRONG>原型：</STRONG></FONT></CODE><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial><SPAN class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;USB_OpenDevice(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle);&nbsp;&nbsp;</SPAN></SPAN></LI></OL></SPAN></FONT></CODE>
+<P><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'></SPAN><STRONG>参数：</STRONG></FONT></CODE></P>
+<P><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'></CODE><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial><FONT color=#008080>DevHandle&nbsp;</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="#USB_ScanDevice" >USB_ScanDevice</A>函数或得。</FONT></CODE></P>
+<P><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial><STRONG>返回值：</STRONG></FONT></CODE></P>
+<P><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial>打开设备状态。0-打开设备失败，1-打开设备成功。</FONT></CODE></P>
+<P><CODE class="c preprocessor" 
+style='BOX-SIZING: content-box !important; FONT-SIZE: 1em !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; RIGHT: auto !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR: gray !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; LEFT: auto !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 1.1em !important; TOP: auto !important; PADDING-RIGHT: 0px !important; BOTTOM: auto !important; border-radius: 0px'><FONT color=#000000 size=3 face=Arial><STRONG>示例：</STRONG></FONT></P></CODE>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;state;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevNum&nbsp;=&nbsp;USB_ScanDevice(&amp;DevHandle);</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//确保当前接入的设备只有一个，否则DevHandle需要使用数组</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(DevNum&nbsp;&gt;&nbsp;0){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;state&nbsp;=&nbsp;USB_OpenDevice(DevHandle);&nbsp;&nbsp;</SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(state){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"打开设备成功!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;}<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >{&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"打开设备失败！\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<H1>
+<HR>
+</H1>
+<H1><A name=USB_CloseDevice>USB_CloseDevice</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>关闭已经打开的设备，在不需要使用设备的时候可以调用该函数关闭设备，比如在程序退出之前可以调用该函数。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;USB_CloseDevice(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT size=3><FONT color=#008080>DevHandle&nbsp;</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="#USB_ScanDevice" ><FONT size=3>USB_ScanDevice</FONT></A><FONT size=3>函数或得。</FONT></P>
+<P><STRONG>返回值：</STRONG></P>
+<P><FONT size=3>打开设备状态。0-关闭设备失败，1-关闭设备成功。</FONT></P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;state;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >state&nbsp;=&nbsp;USB_CloseDevice(DevHandle);&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(state){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"关闭设备成功!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >{&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"关闭设备失败！\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=DEV_GetDeviceInfo>DEV_GetDeviceInfo</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>获取设备信息，如固件版本号，固件编译时间，硬件版本号，设备唯一序列号。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;DEV_GetDeviceInfo(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,PDEVICE_INFO&nbsp;pDevInfo,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pFunctionStr);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT size=3><FONT color=#008080>DevHandle&nbsp;</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="#USB_ScanDevice" ><FONT size=3>USB_ScanDevice</FONT></A><FONT size=3>函数或得。</FONT></P>
+<P><FONT color=#008080>pDevInfo</FONT>&nbsp; 设备信息结构体指针，PDEVICE_INFO的定义如下所示：</P>
+<OL>
+  <LI>
+  <DIV></DIV>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//定义设备信息</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <DIV></DIV>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >typedef</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;</SPAN><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >struct</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;_DEVICE_INFO&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >{&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;FirmwareName[32];&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//固件名称字符串</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;BuildDate[32];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;</SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//固件编译时间字符串</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HardwareVersion;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//硬件版本号</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FirmwareVersion;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;</SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//固件版本号</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SerialNumber[3];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//适配器序列号</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Functions;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;</SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//适配器当前具备的功能</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}DEVICE_INFO,*PDEVICE_INFO;&nbsp;&nbsp;</SPAN></LI></OL>
+<P><FONT color=#008080>&nbsp;&nbsp; 
+pFunctionStr</FONT>&nbsp; 
+设备功能描述字符串，类似于“USB2IIC,USB2SPI,USB2PWM,USB2ADC,USB2GPIO,USB2CNT,USB2UART”。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>获取设备信息是否成功，0-获取设备信息失败，1-获取设备信息成功。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;state;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >DEVICE_INFO&nbsp;DevInfo;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;FuncStr[256]={0};&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >state&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;USB_GetDeviceInfo(DevHandle,&amp;DevInfo,FuncStr);&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(state){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Firmware&nbsp;Name:%s\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,DevInfo.FirmwareName);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Firmware&nbsp;Build&nbsp;Date:%s\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,DevInfo.BuildDate);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Firmware&nbsp;Version:v%d.%d.%d\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,(DevInfo.FirmwareVersion&gt;&gt;24)&amp;0xFF,(DevInfo.FirmwareVersion&gt;&gt;16)&amp;0xFF,DevInfo.FirmwareVersion&amp;0xFFFF);&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Hardware&nbsp;Version:v%d.%d.%d\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,(DevInfo.HardwareVersion&gt;&gt;24)&amp;0xFF,(DevInfo.HardwareVersion&gt;&gt;16)&amp;0xFF,DevInfo.HardwareVersion&amp;0xFFFF);&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Firmware&nbsp;Functions:%08X\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,DevInfo.Functions);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Firmware&nbsp;&nbsp;Functions:%s\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,FuncStr);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >{&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"获取设备信息失败！\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=DEV_EraseUserData>DEV_EraseUserData</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>擦出用户数据存储区域的数据，擦出数据后，默认数据全部为0xFF，用户自定义数据存储区可以存储64KByte数据，但是单次写入数据量不能大于20KByte。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;DEV_EraseUserData(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT size=3><FONT color=#008080>DevHandle&nbsp;</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="#USB_ScanDevice" ><FONT size=3>USB_ScanDevice</FONT></A><FONT size=3>函数或得。</FONT></P>
+<P><STRONG>返回值：</STRONG></P>
+<P>擦出数据状态。0-擦出数据失败，1-擦出数据成功。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;state;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >state&nbsp;=&nbsp;USB_EraseUserData(DevHandle);&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(!state){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Erase&nbsp;user&nbsp;data&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=DEV_WriteUserData>DEV_WriteUserData</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>向用户区写入用户自定义数据，单次写入数据不能超过20KByte，总的数据不能超过64KByte。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;DEV_WriteUserData(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;OffsetAddr,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pWriteData,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DataLen);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT size=3><FONT color=#008080>DevHandle&nbsp;</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="#USB_ScanDevice" ><FONT size=3>USB_ScanDevice</FONT></A><FONT size=3>函数或得。</FONT></P>
+<P><FONT color=#008080>OffsetAddr</FONT>&nbsp; 
+写入数据在用户区的偏移地址，地址从0x0000开始，小于等于0xFFFF。</P>
+<P><FONT color=#008080>pWriteData</FONT>&nbsp; 待写入的数据缓冲区地址。</P>
+<P><FONT color=#008080>DataLen</FONT>&nbsp; 待写入的数据字节数。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>写入数据状态。0-写入数据失败，1-写入数据成功。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;state;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >unsigned&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;UserData[512]={0};&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >strcpy((<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >*)UserData,</SPAN><SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Hello&nbsp;user&nbsp;define&nbsp;data!"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >state&nbsp;=&nbsp;USB_WriteUserData(DevHandle,0,UserData,<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >sizeof</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(UserData));&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(!state){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"User&nbsp;data&nbsp;write&nbsp;data&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=DEV_ReadUserData>DEV_ReadUserData</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>从用户数据区域读取用户写入的自定义数据，单次读取数据最多不能超过20KByte。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;DEV_ReadUserData(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;OffsetAddr,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pReadData,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DataLen);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT size=3><FONT color=#008080>DevHandle&nbsp;</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="#USB_ScanDevice" ><FONT size=3>USB_ScanDevice</FONT></A><FONT size=3>函数或得。</FONT></P>
+<P><FONT color=#008080>OffsetAddr</FONT>&nbsp; 
+读取数据在用户区的偏移地址，地址从0x0000开始，小于等于0xFFFF。</P>
+<P><FONT color=#008080>pReadData</FONT>&nbsp; 待保存读取数据的缓冲区地址。</P>
+<P><FONT color=#008080>DataLen</FONT>&nbsp; 待读取的数据字节数。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>读取数据状态。0-读取数据失败，1-读取数据成功。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;state;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >unsigned&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;UserData[512]={0};&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//从用户区读取数据</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >state&nbsp;=&nbsp;USB_ReadUserData(DevHandle,0,UserData,<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >sizeof</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(UserData));&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(!state){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"User&nbsp;data&nbsp;write&nbsp;data&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >{&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"USER&nbsp;DATA&nbsp;=&nbsp;%s&nbsp;\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,UserData);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=DEV_SetPowerLevel>DEV_SetPowerLevel</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>设置接口输出电平电压，注意，该函数只对带接口电压配置的适配器有用。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;DEV_SetPowerLevel(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;PowerLevel);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT size=3><FONT color=#008080>DevHandle&nbsp;</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="#USB_ScanDevice" ><FONT size=3>USB_ScanDevice</FONT></A><FONT size=3>函数或得。</FONT></P>
+<P><FONT size=3><FONT color=#008080>PowerLevel</FONT>&nbsp; 
+接口电压，0-0V，1-1.8V，2-2.5V，3-3.3V，4-5V。</FONT></P>
+<P><STRONG>返回值：</STRONG></P>
+<P>设置接口电压状态。0-设置电压失败，1-设置电压成功。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//定义电压输出值</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_NONE&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;//不输出</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_1V8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;//输出1.8V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_2V5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;//输出2.5V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_3V3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;//输出3.3V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;POWER_LEVEL_5V0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;//输出5.0V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >bool</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;state;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//将接口电压设置为1.8V</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >state&nbsp;=&nbsp;DEV_SetPowerLevel(DevHandle,POWER_LEVEL_1V8);&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(!state){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Set&nbsp;powerlevel&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >{&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Set&nbsp;powerlevel&nbsp;success\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>7.1 LIN普通发送</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+
+
+
+
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(50);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../index.htm?page=软件使用/TCANLINPro软件使用教程/LIN普通发送.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="发送LIN数据.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../../template1/btn_prev_n.gif" border="0"></a><A href="LDF发送.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="../软件使用.htm">软件使用</A> &gt; <A href="TCANLINPro软件使用教程.htm">TCANLINPro软件使用教程</A> &gt; <A href="发送LIN数据.htm">7. 发送LIN数据</A> &gt; </div>
+<div id="winchm_template_title">7.1 LIN普通发送</div>
+<div id="winchm_template_content">
+<H2>7.1 LIN普通发送</H2>
+<P>点击菜单【发送LIN数据】-&gt;【普通发送】即可打开普通LIN数据发送界面，打开后如下图所示：</P>
+<P><IMG alt="" src="image/LIN普通发送.png"></P>
+<P>界面主要分为【普通发送】和【列表发送】两部分。普通发送一般是发送较为简单的数据，列表发送可以发送较大量，多帧不同ID的数据。</P>
+<HR>
+
+<H3>7.1.1 普通发送</H3><STRONG>1.设备通道：</STRONG>选择需要发送数据的设备通道号，若此处为空白，说明没有任何设备通道启动，或者启动的通道配置为从机模式了，只有在主机模式下才能发送数据；
+<P><STRONG>2.数据类型：</STRONG> 可以选择【同步间隔】（只发送同步间隔）、【主机写】（发送同步间隔+0x55+PID+数据+校验）、【主机读】（发送同步间隔+0x55+PID，然后接收从机返回的数据）；</P>
+<P><STRONG>3.帧ID：</STRONG> LIN数据对应的帧ID，若数据类型是【同步间隔】，该设置无效。无需填高2位的校验位，底层会自动加上，ID范围为0x00到0x3F；</P>
+<P><STRONG>4.数据：</STRONG> 需要发送的LIN数据，最多为8字节，十六进制格式，每个字节之间用空格隔开，若数据类型是【同步间隔】和【主机读】，数据不需要填；</P>
+<P><STRONG>5.编辑数据</STRONG> ：按照二进制模式编辑数据；</P>
+<P><STRONG>6.校验模式：</STRONG> 可以选择【标准校验】（只计算数据项）和【增强校验】（计算PID和数据项）；</P>
+<P><STRONG>7.帧周期：</STRONG> 当前帧发送后的延时时间，单位为毫秒；</P>
+<P><STRONG>8.发送次数：</STRONG> 当前数据发送次数；</P>
+<P><STRONG>9.每次发送帧数：</STRONG> 每次数据发送帧数；</P>
+<P><STRONG>10.每次间隔时间：</STRONG> 每次发送数据之间的间隔时间，单位为毫秒；</P>
+<P><STRONG>11.ID递增：</STRONG> 勾选后，ID每次自动增加1，增加到0x3F之后重新从0x00开始；</P>
+<P><STRONG>12.数据递增：</STRONG> 根据【起始字节】和【递增字节数】设置自动递增数据；</P>
+<P><STRONG>13.发送进度：</STRONG> 显示当前数据发送进度；</P>
+<P><STRONG>14.发送耗时：</STRONG> 显示当前数据发送消耗时间，单位为秒；</P>
+<P><STRONG>15.添加到列表：</STRONG> 将当前数据添加到列表中；</P>
+<P><STRONG>16.发送：</STRONG> 点击后开始发送数据，若正在发送数据，点击后停止发送数据；</P>
+<H3>
+<HR>7.1.2 列表发送</H3>
+<P> 列表操作：</P>
+<P><STRONG>1.全选：</STRONG>点击后选中列表中的所有帧；</P>
+<P><STRONG>2.反选</STRONG>：反选列表中的所有帧，去掉原来选中的，勾选原来没有选中的；</P>
+<P><STRONG>3.上移：</STRONG>点击一次，将选中行整体上移一行；</P>
+<P><STRONG>4.下移：</STRONG>点击一次，将选中行整体下移一行；</P>
+<P><STRONG>5.删除：</STRONG>删除当前选中行；</P>
+<P><STRONG>6.清空：</STRONG>清空列表中的所有数据；</P>
+<P><STRONG>7.导入：</STRONG>导入之前导出的列表文件；</P>
+<P><STRONG>8.导出：</STRONG>将列表中的数据导出为文件；</P>
+<P>离线操作：</P>
+<P><STRONG>1.写入设备：</STRONG>点击后会将列表中的数据写入适配器，适配器通过USB充电器供电后（不接入电脑），会根据当前配置自动发送列表中的数据，实现离线发送数据功能；</P>
+<P><IMG alt="" src="image/普通发送按键控制.png"></P>
+<P>点击【写入设备】后会弹出如上图所示界面，这个界面用于控制数据的发送方式，若需要上电后自动循环发送数据，那么【按键选择】就选择【无】即可，若数据需要通过一个外部按键来控制，则选择对应的按键控制通道，比如选择LIN1，那么只需要在LIN1和GND之间接一个按键就能手动控制数据发送，触发类型一般选择为【下降沿】或者【低电平】，【下降沿】表示按下一次按键就控制数据发送一次，要松开后再次按下才会再次触发，而【低电平】表示按钮按下的时候发送数据，松开后就不发送数据了。</P>
+<P><STRONG>2.从设备读出：</STRONG>将设备中的离线数据读出并在列表中显示出来；</P>
+<P>列表操作：</P>
+<P><STRONG>1.发送次数：</STRONG>列表中的数据发送次数，若设置为-1，则循环发送数据，直到手动停止为止；</P>
+<P><STRONG>2.循环发送：</STRONG>勾选后将循环发送列表中的数据，直到手动停止为止；</P>
+<P><STRONG>3.列表发送：</STRONG>点击后开始发送列表中的数据；</P>
+<P><STRONG>4.更新数据：</STRONG>若正在发送列表中的数据，且需要在不停止发送的时候更改发送数据，只需要更改列表中的数据后点击【更新数据】按钮即可。</P>
+<H3>
+<HR>7.1.3 多通道同时发送</H3>
+<P>若需要同时发送多个通道的数据，只需要点击下图箭头所示图标即可新增一个发送数据界面，然后在新增界面进行数据发送即可。</P>
+<P><IMG alt="" src="image/LIN普通发送_新增发送界面.png"></P><P>然后切换到新的页面，编辑好数据，控制数据发送即可，两个页面数据发送是独立的，不会有任何干扰。</P></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

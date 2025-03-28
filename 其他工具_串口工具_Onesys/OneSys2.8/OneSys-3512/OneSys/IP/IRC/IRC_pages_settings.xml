@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppSettings_3512IRC xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IRC_GC_Page_set>
+    <string>32</string>
+    <string>64</string>
+    <string>128</string>
+    <string>3</string>
+    <string>1290</string>
+    <string>3515</string>
+    <string>0.09</string>
+    <string>0.4</string>
+    <string>2</string>
+    <string>3.4</string>
+    <string>16</string>
+    <string>90</string>
+    <string>20</string>
+    <string>85</string>
+    <string>600</string>
+    <string>3</string>
+    <string>1290</string>
+    <string>3515</string>
+    <string>64</string>
+    <string>128</string>
+    <string>255</string>
+    <string>0</string>
+    <string>1</string>
+    <string>0</string>
+    <string>255</string>
+    <string>1</string>
+    <string>4095</string>
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+  </IRC_GC_Page_set>
+  <IRC_FP_Page_set>
+    <string>9.269 </string>
+    <string>42.589 </string>
+    <string>103.921 </string>
+    <string>195.689 </string>
+    <string>319.720 </string>
+    <string>477.494 </string>
+    <string>670.272 
+</string>
+    <string>899.153 </string>
+    <string>1165.116 </string>
+    <string>1469.046 
+</string>
+    <string>1811.755 </string>
+    <string>2193.988 </string>
+    <string>2616.441 </string>
+    <string>3079.762 </string>
+    <string>3584.564 </string>
+    <string>4096.000 </string>
+    <string>9.269 </string>
+    <string>42.589 </string>
+    <string>103.921 </string>
+    <string>195.689 </string>
+    <string>319.720 </string>
+    <string>477.494 </string>
+    <string>670.272 </string>
+    <string>899.153 </string>
+    <string>1165.116 </string>
+    <string>1469.046 </string>
+    <string>1811.755 </string>
+    <string>2193.988 </string>
+    <string>2616.441 </string>
+    <string>3079.762 </string>
+    <string>3584.564 </string>
+    <string>4096.000</string>
+    <string>9.269 </string>
+    <string>42.589 </string>
+    <string>103.921 </string>
+    <string>195.689 </string>
+    <string>319.720 </string>
+    <string>477.494 </string>
+    <string>670.272 </string>
+    <string>899.153 </string>
+    <string>1165.116 </string>
+    <string>1469.046 </string>
+    <string>1811.755 </string>
+    <string>2193.988 </string>
+    <string>2616.441 </string>
+    <string>3079.762 </string>
+    <string>3584.564 </string>
+    <string>4096.000</string>
+    <string>2664</string>
+    <string>1224</string>
+    <string>1379</string>
+    <string>887</string>
+    <string>1830</string>
+    <string>250</string>
+    <string>0.1</string>
+    <string>0.9</string>
+    <string>2.2</string>
+    <string>4096</string>
+    <string>4096</string>
+    <string>4096</string>
+    <string>4096</string>
+    <string>4096</string>
+    <string>4096</string>
+    <string>1290</string>
+    <string>3515</string>
+    <string>0</string>
+    <string>128</string>
+    <string>256</string>
+    <string>384</string>
+    <string>511</string>
+    <string>511</string>
+    <string>511</string>
+    <string>511</string>
+    <string>511</string>
+    <string>37</string>
+    <string>169</string>
+    <string>412</string>
+    <string>776</string>
+    <string>1268</string>
+    <string>1893</string>
+    <string>2658</string>
+    <string>3566</string>
+    <string>4620</string>
+    <string>5825</string>
+    <string>7184</string>
+    <string>8700</string>
+    <string>10375</string>
+    <string>12213</string>
+    <string>14214</string>
+    <string>16383</string>
+    <string>0</string>
+    <string>0</string>
+    <string>1023</string>
+    <string>0</string>
+    <string>2664</string>
+    <string>1224</string>
+    <string>42</string>
+    <string>0</string>
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+  </IRC_FP_Page_set>
+</AppSettings_3512IRC>

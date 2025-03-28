@@ -1,0 +1,18 @@
+R9C A5 A5
+RFD 5A 5A
+
+
+R9F 12
+RB9 2B 00 07
+
+R11
+delay 120
+R10
+
+
+R9F 12
+RB9 0B 10
+
+R11
+
+delay 120

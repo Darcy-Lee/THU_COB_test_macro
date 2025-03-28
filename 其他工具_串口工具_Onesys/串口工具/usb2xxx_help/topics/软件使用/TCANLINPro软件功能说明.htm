@@ -1,0 +1,621 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TCANLINPro软件功能说明</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(30);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=软件使用/TCANLINPro软件功能说明.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="功耗分析仪软件使用教程.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="TCANLINPro软件使用教程/TCANLINPro软件使用教程.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="软件使用.htm">软件使用</A> &gt; </div>
+<div id="winchm_template_title">TCANLINPro软件功能说明</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+  <LI>
+<DIV><A href="#1. 设备管理"><STRONG><FONT color=#0000ff>1. 
+  设备管理</FONT></STRONG></A></DIV>
+  <LI>
+<DIV><A href="#2. 启动设备"><STRONG><FONT color=#0000ff>2. 
+  启动设备</FONT></STRONG></A></DIV>
+  <LI>
+<DIV><A href="#2.1 启动CAN设备">2.1 启动CAN设备</A></DIV>
+  <LI>
+<DIV><A href="#2.2 启动LIN设备">2.2 启动LIN设备</A></DIV>
+  <LI>
+<DIV><A href="#3. 数据显示视图"><STRONG><FONT color=#0000ff>3. 
+  数据显示视图</FONT></STRONG></A></DIV>
+  <LI>
+<DIV><A href="#3.1 普通视图">3.1 普通视图</A></DIV>
+  <LI>
+<DIV><A href="#3.2 CAN视图显示设置">3.2 CAN视图显示设置</A></DIV>
+  <LI>
+<DIV><A href="#3.3 LIN视图设置">3.3 LIN视图设置</A></DIV>
+  <LI>
+<DIV><A href="#3.4 CAN DBC视图">3.4 CAN DBC视图</A></DIV>
+  <LI>
+<DIV><A href="#3.5 曲线视图">3.5 曲线视图</A></DIV>
+  <LI>
+<DIV><A href="#3.6 LIN LDF视图">3.6 LIN LDF视图</A></DIV>
+  <LI>
+<DIV><A href="#4. 发送CAN数据"><STRONG><FONT color=#0000ff>4. 
+  发送CAN数据</FONT></STRONG></A></DIV>
+  <LI>
+<DIV><A href="#4.1 普通发送">4.1 普通发送</A></DIV>
+  <LI>
+<DIV><A href="#4.2 DBC发送">4.2 DBC发送</A></DIV>
+  <LI>
+<DIV><A href="#4.3 DBC发送（信号变化）">4.3 
+  DBC发送（信号变化）</A></DIV>
+  <LI>
+<DIV><A href="#4.4 数据回放">4.4 数据回放</A></DIV>
+  <LI>
+<DIV><A href="#4.5 列表文件发送">4.5 列表文件发送</A></DIV>
+  <LI>
+<DIV><A href="#5. 发送LIN数据"><STRONG><FONT color=#0000ff>5. 
+  发送LIN数据</FONT></STRONG></A></DIV>
+  <LI>
+<DIV><A href="#5.1 普通发送">5.1 普通发送</A></DIV>
+  <LI>
+<DIV><A href="#5.2 LDF发送">5.2 LDF发送</A></DIV>
+  <LI>
+<DIV><A href="#5.3 LDF列表发送">5.3 LDF列表发送</A></DIV>
+  <LI>
+<DIV><A href="#5.4 LDF列表发送(信号变化)">5.4 
+  LDF列表发送(信号变化)</A></DIV>
+  <LI>
+<DIV><A href="#5.5 UDS协议发送">5.5 UDS协议发送</A></DIV>
+  <LI>
+<DIV><A href="#5.6 数据回放">5.6 数据回放</A></DIV>
+  <LI>
+<DIV><A href="#5.7 列表文件发送">5.7 列表文件发送</A></DIV>
+  <LI>
+<DIV><A href="#5.8 设置从机响应数据">5.8 设置从机响应数据</A></DIV>
+  <LI>
+<DIV><A href="#6. 高级功能"><STRONG><FONT color=#0000ff>6. 
+  高级功能</FONT></STRONG></A></DIV>
+  <LI>
+<DIV><A href="#6.1 CAN总线状态">6.1 CAN总线状态</A></DIV>
+  <LI>
+<DIV><A href="#6.2 CAN总线中继">6.2 CAN总线中继</A> </DIV>
+  <LI>
+<DIV><A href="#6.3 CAN固件升级">6.3 CAN固件升级</A></DIV>
+  <LI>
+<DIV><A href="#6.4 CAN/LIN总线利用率">6.4 
+  CAN/LIN总线利用率</A></DIV>
+  <LI>
+<DIV><A href="#6.5 LIN固件升级">6.5 LIN固件升级</A></DIV>
+  <LI>
+<DIV><A href="#6.6 MLX芯片烧写">6.6 MLX芯片烧写</A></DIV>
+  <LI>
+<DIV><A href="#6.7 CAN&amp;LIN互转">6.7 
+  CAN&amp;LIN互转</A></DIV>
+  <LI>
+<DIV><A href="#6.8 CAN转PWM">6.8 CAN转PWM</A></DIV>
+  <LI>
+<DIV><A href="#6.9 PWM波形输出">6.9 PWM波形输出</A></DIV></LI></UL><A 
+name="1. 设备管理">
+<H1>
+<HR> </H1>
+<H1>1. 设备管理</A></H1>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/多设备管理.png"></P>
+<UL>
+  <LI>
+<DIV 
+  >在软件的设备管理视图里面，可以同时启动多个设备，多个通道总线，所有的CAN通道和LIN通道都可以同时独立工作，互不影响；</DIV></LI></UL>
+<H1>
+<HR>
+<A name="2. 启动设备">2. 启动设备</A> </H1>
+<H2><A name="2.1 启动CAN设备">2.1 启动CAN设备</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN启动设置.png"></P>
+<UL>
+  <LI>
+<DIV 
+  >点击CAN对应通道后面的【启动】按钮，会弹出CAN参数配置界面，主要是配置CAN总线波特率，工作模式，终端电阻接入方式；</DIV>
+  <LI>
+<DIV 
+  >工作模式有【正常模式】和【自发自收】模式，在没有外部接收CAN数据设备的情况下，可以使用自发自收模式测试软件功能，在正常使用的情况下，得配置为【正常模式】；</DIV>
+  <LI>
+<DIV 
+  >终端电阻的配置是通过软件配置的，若CAN总线上没有终端电阻，则需要在软件上使能终端电阻，否则可能会导致CAN数据无法正常收发；</DIV>
+  <LI>
+<DIV 
+  >常规CAN波特率在【仲裁域波特率】里面配置，若设备是支持CANFD的，那么可以根据实际需求配置【数据域波特率】；</DIV>
+  <LI>
+<DIV 
+  >波特率可以选择为【自定义】，然后自己设置波特率参数即可实现自定义任意波特率，点击【波特率计算器】，可以打开波特率参数计算软件，输入需要设置的波特率后，会自动计算出多组波特率参数供选择；</DIV>
+  <LI>
+<DIV 
+  >若不清楚总线波特率，可以点击【探测波特率】按钮，对总线波特率进行探测。</DIV></LI></UL>
+<H2 
+  ><A name="2.2 启动LIN设备">2.2 启动LIN设备</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LIN启动设置.png"></P>
+<UL>
+  <LI>
+<DIV>点击LIN对应通道后面的【启动】按钮，会弹出LIN参数配置界面；</DIV>
+  <LI>
+<DIV 
+  >根据通信对象，设置好波特率，若是去监控现有总线上的数据，但是不知道当前总线上的具体波特率，那么可以将【主从模式】配置为【从机】，然后点击【探测波特率】按钮即可探测总线上数据传输的波特率值；</DIV>
+  <LI>
+<DIV 
+  >根据实际需求选择【主从模式】，LIN通信是有主从关系的，若要通信的对象是从设备，那么我们的适配器就得配置为【主机】，若是要去监控总线上的数据，那么我们设备就得配置为【从机】；</DIV>
+  <LI>
+<DIV>主机模式下，可配置同步间隔宽度，一般情况下默认13位即可；</DIV>
+  <LI>
+<DIV 
+  >VBAT输出可配置为12V，5V或者不输出，老版本的适配器不支持5V输出，只支持12V或者不输出，12V输出最大电流不能超过100mA；</DIV>
+  <LI>
+<DIV 
+  >适配器内部的5V转12V输出能力比较弱，最大输出电流大概有100mA左右，所以在外部设备功率不大的情况下，可以使用我们的设备12V给外部设备供电，在通信环境中有强电磁干扰的情况下，比如控制大电流继电器，大功率电机，这时把适配器的12V端口外接12V电源，可以大幅提升数据通信抗干扰能力；</DIV></LI></UL>
+<H1>
+<HR>
+<A name="3. 数据显示视图">3. 数据显示视图</A> </H1>
+<H2><A name="3.1 普通视图">3.1 普通视图</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN和LIN更新显示.png"></P>
+<UL>
+  <LI>
+<DIV 
+  >点击启动CAN或者LIN后，会自动打开一个普通数据显示视图，在这个视图界面里面，可以看到CAN或者LIN的原始数据，若同时启动了多个CAN或者LIN视图，可以新增CAN或者LIN视图进行数据查看，也可以在当前视图里面选择不同设备，不同通道的数据进行查看；</DIV>
+  <LI>
+<DIV 
+  >可将当前视图里面的数据导出为文件，也可以清空数据，暂停显示，滚动显示，还可以配置为更新显示；</DIV>
+  <LI>
+<DIV 
+  >点击【更新显示】后，会在当前视图的下方打开更新显示窗口，更新显示模式下，只会显示同一个ID最新的数据，若数据发生了变化，那么该字节数据会显示为蓝色，同时也会统计当前ID接收到的帧数；</DIV></LI></UL>
+<H2 
+  ><A name="3.2 CAN视图显示设置">3.2 CAN视图显示设置</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN显示格式设置.png"></P>
+<UL>
+  <LI>
+<DIV 
+  >点击CAN总线视图里面的【显示设置】后，可以弹出显示设置界面，在这个界面里面，可以对显示信息进行按需设置；</DIV></LI></UL>
+<H2 
+  ><A name="3.3 LIN视图设置">3.3 LIN视图设置</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LIN显示格式设置.png"></P>
+<UL>
+  <LI>点击LIN总线视图里面的【显示设置】后，可以弹出显示设置界面，在这个界面里面，可以对显示信息进行按需设置；</LI></UL>
+  <H2><A name="3.4 CAN DBC视图">3.4 CAN DBC视图</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN_DBC视图解析数据.png"></P>
+<UL>
+  <LI>点击【新增CAN视图】-&gt;【新增DBC视图】后，可以打开DBC数据解析视图界面，点击【打开文件】，选择需要进行数据解析的DBC文件，若适配器接收到了CAN数据，或者发送了CAN数据，那么数据就会在该界面进行解析显示； 
+
+  <LI>若想实时将解析的数据保存为文件，可点击【保存数据】按钮，然后选择文件保存路径即可；</LI></UL> 
+
+  <H2><A name="3.5 曲线视图">3.5 曲线视图</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN_LIN数据曲线或表盘显示.png"></P>
+<UL>
+  <LI>点击【新增CAN视图】-&gt;【新增CAN曲线视图】后，即可打开数据曲线，表盘显示界面； 
+  <LI>点击【加载DBC文件】按钮，选择DBC文件，然后在列表中选中需要显示数据的信号，点击鼠标右键，即可选择【曲线显示】，【表盘显示】，【布尔量显示】，每种显示效果如上图所示； 
+
+  <LI>若没有DBC文件，那么也可以通过点击【新增信号】按钮，添加自定义信号，然后进行数据显示； 
+  <LI>CAN和LIN数据图形显示方式都一样，不同的是CAN是使用DBC文件，LIN是使用LDF文件，所以后面就不单独对LIN数据图形显示做单独的介绍；</LI></UL> 
+  <H2><A name="3.6 LIN LDF视图">3.6 LIN LDF视图</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LIN_LDF视图解析显示数据.png"></P>
+<UL>
+  <LI>
+<DIV 
+  >点击【新增LIN视图】-&gt;【新增LDF视图】，即可打开LDF视图界面，在该界面中，点击【打开文件】按钮，选择LDF文件后，再进行LIN数据收发时，就能实时解析LIN总线数据；</DIV>
+  <LI>
+<DIV 
+  >若需要将解析的数据实时保存为文件，可以点击【保存数据】按钮，然后选择数据文件存储路径即可；</DIV></LI></UL>
+<H1>
+<HR>
+<A name="4. 发送CAN数据">4. 发送CAN数据</A> </H1>
+<H2><A name="4.1 普通发送">4.1 普通发送</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN普通模式发送数据.png"></P>
+<UL>
+  <LI>
+<DIV 
+  >点击【发送CAN数据】-&gt;【普通发送】后，即可打开普通CAN数据发送界面，如上图所示；</DIV>
+  <LI>
+<DIV 
+  >在需要进行简单的数据大量发送时，可以设置好发送次数，以及每次发送帧数，设置好之后点击【发送】按钮即可开始数据的发送，再次点击即可停止数据发送；</DIV>
+  <LI>
+<DIV>发送数据时可以设置ID递增，数据递增模式，数据也可以添加到列表里面进行发送；</DIV>
+  <LI>
+<DIV 
+  >列表中的帧可以顺序发送，也可以并行发送，并行发送时，延时时间最好能大于10ms，这样才能保证每帧的间隔时间基本准确；</DIV>
+  <LI>
+<DIV 
+  >列表中的数据可以写入到适配器内部后，将适配器通过USB充电器供电，即可自动循环发送列表中的数据，点击【写入设备】后，也可以配置为按钮触发方式发送，比如在LIN1跟GND之间接一个按钮，按下之后就发送一次；</DIV>
+  <LI>
+<DIV>若需要清除写入设备中的离线发送数据，可以在适配器固件升级界面进行清除；</DIV>
+  <LI>
+<DIV 
+  >点击发送数据界面上右上角的绿色加号，可以新增一个发送数据界面，如此可以实现同时发送多个通道的数据；</DIV></LI></UL>
+<H2><A name="4.2 DBC发送">4.2 DBC发送</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN_DBC模式发送数据.png"></P>
+<UL>
+  <LI>
+<DIV 
+  >点击【发送CAN数据】-&gt;【DBC发送】后，可以打开DBC数据发送界面，如上图所示；</DIV>
+  <LI>
+<DIV 
+  >加载DBC文件后，可以在消息列表中点击鼠标右键将需要发送的消息添加到发送列表中，点击选中发送列表中的消息后，可以在下方设置该消息内部每个信号的值，信号值修改后会立即生效；</DIV>
+  <LI>
+<DIV 
+  >点击【列表发送】即可开始发送数据，数据可配置为顺序发送或者并行发送，再次点击可停止发送；</DIV></LI></UL>
+<H2><A name="4.3 DBC发送（信号变化）">4.3 DBC发送（信号变化）</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN_DBC信号变化发送数据.png"></P>
+<UL>
+  <LI>
+<DIV 
+  >点击【发送CAN数据】-&gt;【DBC发送(信号变化)】后，可以打开DBC信号数据变化发送界面，如上图所示；</DIV>
+  <LI>
+<DIV 
+  >将需要发送的帧添加到发送列表后（点击鼠标右键添加），选择需要变化数据发送的帧，然后在下方设置信号数据变化方式即可，每种变化都有对应的参数进行设置，需要配置好参数，否则可能无法得到预期的数据变化效果；</DIV>
+  <LI>
+<DIV 
+  >可以在曲线视图里面监控信号数据变化的信号数据，以此来验证发送出去的数据是否是自己预期的数据；</DIV></LI></UL>
+<H2><A name="4.4 数据回放">4.4 数据回放</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN数据回放.png"></P>
+<UL>
+  <LI>
+<DIV>点击【发送CAN数据】-&gt;【数据回放】后即可打开数据回放界面；</DIV>
+  <LI>
+<DIV 
+  >通过我们适配器抓到的CAN数据，然后将数据导出为文件后，可以将文件进行数据回放发送到CAN总线，或者是在软件内部回放；</DIV>
+  <LI>
+<DIV>回放数据的时候可以设置指定ID数据回放，或者过滤指定ID的数据；</DIV></LI></UL>
+<H2><A name="4.5 列表文件发送">4.5 列表文件发送</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN列表文件发送.png"></P>
+<UL>
+  <LI>
+<DIV>点击【发送CAN数据】-&gt;【列表文件发送】后即可打开列表文件发送界面；</DIV>
+  <LI>
+<DIV>选择列表文件所在目录，软件会自动识别当前目录下的文件类型，并将支持发送的文件名称在界面上显示出来；</DIV>
+  <LI>
+<DIV>点击列表中的【发送】按钮可以启动数据发送，再次点击可停止发送；</DIV>
+  <LI>
+<DIV>可以循环发送或者并行发送列表中的数据文件，也可以顺序发送列表中的数据文件；</DIV>
+  <LI>
+<DIV>数据在进行发送时，会显示数据发送进度，以及当前数据发送完毕百分比；</DIV></LI></UL>
+<H1>
+<HR>
+<A name="5. 发送LIN数据">5. 发送LIN数据</A> </H1>
+<H2><A name="5.1 普通发送">5.1 普通发送</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LIN普通模式发送数据.png"> </P>
+<UL>
+  <LI>
+<DIV>点击【发送LIN数据】-&gt;【普通发送】后即可打LIN数据普通发送界面；</DIV>
+  <LI>
+<DIV 
+  >发送数据必须在适配器被配置为【主机】模式后才能正常操作，因为只有LIN总线数据才能进行主动数据收发；</DIV>
+  <LI>
+<DIV 
+  >【数据类型】里面有【同步间隔】，【主机写】，【主机读】3个选项，【同步间隔】仅仅发送一个同步间隔信号，不会发送其他数据，发送同步间隔一般用于LIN总线上设备唤醒操作，【主机写】发送数据，除了发送正常的帧头之外，还可以发送数据，【主机读】只实现发送帧头，然后等待从机来填充数据域，最后将从机发送的数据接收到并传输到上位机端；</DIV>
+  <LI>
+<DIV 
+  >添加到发送列表中的数据，同样可以通过点击【写入设备】将数据写入适配器内部，适配器通过USB充电器供电后就可以自动发送列表中的数据；</DIV>
+  <LI>
+<DIV>列表中的数据可以导出文件，方便下次直接导入文件；</DIV></LI></UL>
+<H2><A name="5.2 LDF发送">5.2 LDF发送</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LDF模式发送数据.png"> </P>
+<UL>
+  <LI>
+<DIV>点击【发送LIN数据】-&gt;【LDF发送】后即可打LIN LDF数据发送界面；</DIV>
+  <LI>
+<DIV 
+  >界面内容会根据LDF文件内容自动生成，在主机模式下，可以设置发送出去的数据，也可以向从机读取数据，并解析显示在界面；</DIV>
+  <LI>
+<DIV 
+  >在从机模式下，接收到数据后，会根据LDF文件自动解析并显示在界面，也可以在界面设置需要向主机反馈的数据；</DIV>
+  <LI>
+<DIV>可以选择执行某一个调度表，也可以选择执行所有调度表；</DIV></LI></UL>
+<H2><A name="5.3 LDF列表发送">5.3 LDF列表发送</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LDF列表模式发送数据.png"> </P>
+<UL>
+  <LI>
+<DIV>
+<DIV>点击【发送LIN数据】-&gt;【LDF列表发送】后即可打LIN 
+  LDF列表数据发送界面；</DIV> </DIV>
+  <LI>
+<DIV>
+<DIV 
+  >相对【LDF发送】界面，列表模式发送界面可以灵活的添加需要发送的帧，同时更方便的编辑每个帧，每个信号的数据，推荐使用该模式发送数据；</DIV> </DIV>
+  <LI>
+<DIV>
+<DIV 
+  >在从机模式下，也可以编辑从机向主机返回的数据，但是在这个界面不能实时解析显示接收到的数据，需要解析显示数据，得在【新增LIN视图】-&gt;【新增LDF视图】界面进行查看；</DIV> </DIV></LI></UL>
+<H2><A name="5.4 LDF列表发送(信号变化)">5.4 LDF列表发送(信号变化)</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LDF数据变化发送.png"> </P>
+<UL>
+  <LI>
+<DIV>点击【发送LIN数据】-&gt;【LDF列表发送(信号变化)】后即可打LIN 
+  LDF列表数据发送界面；</DIV>
+  <LI>
+<DIV 
+  >将需要发送的消息添加到发送列表后，点击某一个消息的某一个信号，可以编辑该信号的数据发送变化方式；</DIV>
+  <LI>
+<DIV>此模式发送数据只支持主机模式下发送数据，不能编辑从机模式下数据变化返回给主机；</DIV>
+  <LI>
+<DIV>编辑信号数据变化模式时，可以实时显示波形；</DIV></LI></UL>
+<H2><A name="5.5 UDS协议发送">5.5 UDS协议发送</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LIN_UDS模式收发数据.png"> </P>
+<UL>
+  <LI>
+<DIV>点击【发送LIN数据】-&gt;【UDS协议发送】后即可打LIN 
+  UDS协议数据发送界面；</DIV>
+  <LI>
+<DIV 
+  >有的LIN设备数据通信需要用到UDS协议方式进行通信，在该界面发送界面更为方便，不需要自己去分包数据，只需要设置好服务ID，该ID对应的参数，底层会自动根据UDS协议方式打包数据并发送；</DIV>
+  <LI>
+<DIV 
+  >可以勾选是否需要响应数据，若需要响应数据，可设置数据响应超时时间，接收到响应的数据后，会在操作记录里面进行显示，底层所有的数据收发都会在【新增LIN视图】里面进行显示；</DIV>
+  <LI>
+<DIV>可以将需要的操作添加到列表里面循环执行，适用于对时间要求比较严格的应用场合；</DIV></LI></UL>
+<H2><A name="5.6 数据回放">5.6 数据回放</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LIN数据回放.png"> </P>
+<UL>
+  <LI>
+<DIV>点击【发送LIN数据】-&gt;【数据回放】后即可打LIN数据回放界面；</DIV>
+  <LI>
+<DIV 
+  >在LIN视图里面保存的数据，可以在此处进行回放，回放时可以设置过滤某些ID的数据，或者指定发送某些ID的数据；</DIV>
+  <LI>
+<DIV>可以单独设置某些ID的校验模式，可以选择控制数据发送到总线或者只是在软件内部发送；</DIV></LI></UL>
+<H2><A name="5.7 列表文件发送">5.7 列表文件发送</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LIN列表文件发送.png"> </P>
+<UL>
+  <LI>
+<DIV>点击【发送LIN数据】-&gt;【列表文件发送】后即可打LIN数据回放界面；</DIV>
+  <LI>
+<DIV 
+  >点击【选择目录】选择包含数据列表文件的目录，软件会自动识别所有支持的文件，然后在列表中显示出来，点击列表中的【发送】按钮，可以控制每个文件的数据发送；</DIV>
+  <LI>
+<DIV>点击【列表发送】按钮，可以顺序或者并行发送列表中的数据列表文件；</DIV>
+  <LI>
+<DIV>勾选【循环发送】后，数据可循环发送；</DIV></LI></UL>
+<H2><A name="5.8 设置从机响应数据">5.8 设置从机响应数据</A> </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/设置LIN从机模式响应数据.png"> </P>
+<UL>
+  <LI>
+<DIV 
+  >点击【发送LIN数据】-&gt;【设置从机响应数据】后即可打开LIN从机模式下向主机返回数据的配置界面；</DIV>
+  <LI>
+<DIV 
+  >将需要反馈给主机的ID数据类型配置为【从机写】，然后配置好校验模式和数据即可，配置完毕后，点击【设置数据】按钮即可；</DIV>
+  <LI>
+<DIV> 主机模式下该界面无效；</DIV></LI></UL>
+<H1>
+<HR>
+<A name="6. 高级功能">6. 高级功能</A>  </H1>
+<H2><A name="6.1 CAN总线状态">6.1 CAN总线状态</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN总线状态.png">  </P>
+<UL>
+  <LI>
+<DIV> 点击【高级功能】-&gt;【CAN总线状态】后即可打开CAN总线状态界面；</DIV>
+  <LI>
+<DIV 
+  > 在无法进行CAN数据收发时，可以打开该界面查看是否有CAN总线错误发生，如此可以初步判断问题所在；</DIV></LI></UL>
+<H2><A name="6.2 CAN总线中继">6.2 CAN总线中继</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN中继模式.png">  </P>
+<UL>
+  <LI>
+<DIV> 点击【高级功能】-&gt;【CAN总线中继】后即可打开CAN总线中继界面；</DIV>
+  <LI>
+<DIV 
+  > CAN总线中继可以在线转换，也可以写入设备，在设备中转换，在线转换延时较长，但是可以看到所有收发的数据，在设备上转换，延时最短，但是无法看到中继之后转发的数据；</DIV>
+  <LI>
+<DIV 
+  > 将转换规则添加到列表后，软件会根据列表中的转换规则进行中继，列表中的转换规则数据可以导出为文件保存；</DIV></LI></UL>
+<H2><A name="6.3 CAN固件升级">6.3 CAN固件升级</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN_Bootloader.png">  </P>
+<UL>
+  <LI>
+<DIV> 点击【高级功能】-&gt;【CAN固件升级】后即可打开CAN固件升级界面；</DIV>
+  <LI>
+<DIV 
+  > 该功能是实现对CAN总线上的节点进行固件升级，我们提供有固件升级协议文档，以及STM32单片机，TMS320F28335/2808芯片固件升级固件源码；</DIV>
+  <LI>
+<DIV> 固件支持文件AES加密传输功能，可以保证固件安全性；</DIV></LI></UL>
+<H2><A name="6.4 CAN/LIN总线利用率">6.4 CAN/LIN总线利用率</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN速率和总线利用率统计.png">  </P>
+<UL>
+  <LI>
+<DIV 
+  > 点击【高级功能】-&gt;【CAN/LIN总线利用率】后即可打开CAN/LIN总线利用率界面；</DIV>
+  <LI>
+<DIV 
+  > 可试试显示当前总线数据收发速度，以及总线当前利用率，点击【实时保存】可以将数据实时保存到文件；</DIV></LI></UL>
+<H2><A name="6.5 LIN固件升级">6.5 LIN固件升级</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/LIN_Bootloader.png">  </P>
+<UL>
+  <LI>
+<DIV> 点击【高级功能】-&gt;【LIN固件升级】后即可打开LIN固件升级界面；</DIV>
+  <LI>
+<DIV 
+  > 跟CAN固件升级一样，也是实现对LIN总线上的节点进行固件升级，使用的协议跟CAN总线固件升级协议一样；</DIV>
+  <LI>
+<DIV> 提供STM32F1单片机的固件源码，可以很方便的移植到其他单片机上；</DIV></LI></UL>
+<H2><A name="6.6 MLX芯片烧写">6.6 MLX芯片烧写</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/MLX芯片烧录.png">  </P>
+<UL>
+  <LI>点击【高级功能】-&gt;【MLX芯片烧写】后即可打开迈来芯氛围灯芯片烧写界面； 
+  <LI>打开软件后，可根据接入的设备数量，自动生成烧写列表，列表中可以单独烧写，也可以一键烧写，方便大批量量产； 
+  <LI>可以设置循环烧写次数，每次烧写间隔时间，可以将烧写结果记录在文件中，方便自动化批量烧写芯片，提高生成效率； 
+
+  <LI>也可以设置程序烧写完毕后自动发送功能测试指令，测试指令文件为【普通发送】里面保存出来的列表文件；</LI></UL>
+<H2><A name="6.7 CAN&amp;LIN互转">6.7 CAN&amp;LIN互转</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN_LIN数据互转.png">  </P>
+<UL>
+  <LI>
+<DIV 
+  > 点击【高级功能】-&gt;【CAN&amp;LIN互转】后即可打开CAN&amp;LIN互转界面；</DIV>
+  <LI>
+<DIV 
+  > 可以将转换规则添加到列表里面，点击【在线转换】后软件在线转换数据，注意，使用该功能，需要先启动CAN和LIN；</DIV>
+  <LI>
+<DIV 
+  > 也可以点击【写入设备】将转换规则写入适配器内部，然后将适配器通过USB数据充电器供电后，自动进入数据转换模式；</DIV>
+  <LI>
+<DIV> LIN为主机或者为从机时，转换方式不太一样，具体转换规则可以参考界面上的转换说明；</DIV></LI></UL>
+<H2><A name="6.8 CAN转PWM">6.8 CAN转PWM</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/CAN转PWM.png">  </P>
+<UL>
+  <LI>
+<DIV> 点击【高级功能】-&gt;【CAN转PWM】后即可打开CAN转PWM界面；</DIV>
+  <LI>
+<DIV 
+  > 简单的说就是将接收到的CAN数据转换成PWM输出，具体转换规则参考软件上的转换说明，在我们软件安装目录下也有CAN转PWM的DBC文件，通过【DBC发送】可以分方便的发送数据；</DIV>
+  <LI>
+<DIV 
+  > 收到CAN数据后，软件会根据收到的参数显示输出的PWM波形，通过软件上显示的波形可以初步评估输出的波形是否为我们需要的波形；</DIV>
+  <LI>
+<DIV 
+  > 该功能适用于在没有CAN总线接口，而只有PWM控制接口的控制场合，</DIV></LI></UL>
+<H2><A name="6.9 PWM波形输出">6.9 PWM波形输出</A>  </H2>
+<P><IMG alt="" src="../图片/TCANLINPro软件截图/PWM波形输出.png"> </P>
+<UL>
+  <LI>
+<DIV> 点击【高级功能】-&gt;【PWM波形输出】后即可打开PWM波形输出界面；</DIV>
+  <LI>
+<DIV 
+  > PWM是通过LIN总线接口输出PWM波形，勾选【使能适配器5V转12V】后，PWM输出的波形时12V，可不勾选，然后外接5到36V电压到12V电压接口，就可以实现5V到36V的PWM电压输出；</DIV>
+  <LI>
+<DIV 
+  > PWM输出最大频率建议不要超过100KHz，否则可能会导致波形上升沿比较缓慢，而波形比较差的情况；</DIV>
+  <LI>
+<DIV 
+  > 可以在软件上配置波形输出时间，脉冲输出个数，也可以点击【写入设备】，再将适配器通过USB充电器供电后自动输出PWM方波；</DIV></LI></UL>
+<P> &nbsp;</P></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

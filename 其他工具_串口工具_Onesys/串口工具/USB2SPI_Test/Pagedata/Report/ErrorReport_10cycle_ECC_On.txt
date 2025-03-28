@@ -1,0 +1,8 @@
+File: RRAMpage_SUBIP0.txt, Line: 1, Column: 13, Char: FB
+File: RRAMpage_SUBIP0.txt, Line: 1, Column: 14, Char: D7
+File: RRAMpage_SUBIP0.txt, Line: 1, Column: 15, Char: DD
+File: RRAMpage_SUBIP0.txt, Line: 1, Column: 17, Char: 7F
+File: RRAMpage_SUBIP0.txt, Line: 1, Column: 18, Char: BE
+File: RRAMpage_SUBIP0.txt, Line: 1, Column: 19, Char: EF
+File: RRAMpage_SUBIP0.txt, Line: 1, Column: 20, Char: FD
+RRAMpage_SUBIP0.txt has 7 error(s)

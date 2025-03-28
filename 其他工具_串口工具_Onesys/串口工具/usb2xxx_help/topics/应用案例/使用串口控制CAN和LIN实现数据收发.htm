@@ -1,0 +1,383 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head><title>使用串口控制CAN和LIN实现数据收发</title>
+<meta name="GENERATOR" content="MSHTML 11.00.10570.1001">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<STYLE>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</STYLE>
+<!--EndFragment-->
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(74);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=应用案例/使用串口控制CAN和LIN实现数据收发.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="串口控制CAN和LIN数据收发协议.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="使用按键控制CAN和LIN实现数据发送.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="应用案例.htm">应用案例</A> &gt; </div>
+<div id="winchm_template_title">使用串口控制CAN和LIN实现数据收发</div>
+<div id="winchm_template_content">
+
+<H1>目录</H1>
+<UL>
+  <LI>
+
+<DIV><A href="#概述"><STRONG>概述</STRONG></A></DIV></LI>
+  <LI>
+
+<DIV><A 
+  href="#串口控制LIN配置"><STRONG>串口控制LIN配置</STRONG></A></DIV></LI>
+  <LI>
+
+<DIV><A 
+  href="#串口控制CAN配置"><STRONG>串口控制CAN配置</STRONG></A></DIV></LI>
+  <LI>
+
+<DIV><A 
+  href="#串口控制举例"><STRONG>串口控制举例</STRONG></A></DIV></LI></UL>
+
+<H1><A name=概述>概述</A></H1>
+
+<P>UTA0404可以通过串口模式控制CAN/LIN数据收发，串口可以使用RS232或者RS485总线，它们使用的引脚不一样，具体使用的引脚可以参考《<A 
+href="../引脚定义说明文档.htm">引脚定义说明文档</A>》，控制协议使用的是Modebus 
+RTU，可以使用PLC等带Modbus协议的设备进行控制。在通过串口控制之前，需要使用TCANLINPro软件对串口，CAN口，LIN口进行一些配置，比如配置串口的波特率，节点地址等，CAN口的波特率，LIN口的波特率，主从模式，调度表等。本文档后续会对这些配置进行详细介绍。</P>
+
+<H1><A name=串口控制LIN配置>串口控制LIN配置</A></H1>
+
+<P>先将设备通过USB数据线接入电脑，打开TCANLINPro软件，若软件识别到了设备，会在软件的设备管理界面显示对应的设备，如下图所示：</P>
+
+<P><IMG alt="" src="串口控制_设备管理.png"></P>
+
+<P>若在软件的设备管理里面没有显示设备，则有可能是设备驱动没安装好，或者是设备没有正确的连接到电脑。</P>
+
+<P>点击软件的【工具集合】-&gt;【LIN串口控制配置】，弹出如下界面：</P>
+
+<P><IMG alt="" src="串口控制_LIN从机配置.png"></P>
+
+<P>根据自己串口相关信息配置好串口参数，主要是节点地址和波特率配置，打开软件后默认LIN是从机模式，从机模式下可以监控LIN总线上数据，适配器内部包含一个LIN接收数据表，该表会存储对应ID接收到的最新数据，该数据可以通过串口读取到。</P>
+
+<P>若需要实现从机模式响应主机的读操作，那么可以将帧类型配置为【从机写】，然后再数据栏填入默认响应数据，该响应数据也可以通过串口实时修改。</P>
+
+<P>若LIN口要配置为主机模式，将主从模式选择【主机】即可，选择后如下图所示：</P>
+
+<P><IMG alt="" src="串口控制_LIN主机配置.png"></P>
+
+<P>将需要发送数据的ID勾选上，帧类型配置为【主机写】，在数据栏填入默认要发送的数据。若某个ID需要向从机读数据，需要勾选该ID，然后将帧类型配置为【主机读】即可。</P>
+
+<P>配置好串口参数，LIN口参数，LIN调度表之后，点击【写入】按钮，相关配置数据就会写入适配器内部，然后重新给适配器上电就可以通过串口进行控制了，这些参数会掉电保存。</P>
+
+<H1><A name=串口控制CAN配置>串口控制CAN配置</A></H1>
+
+<P>参考上一步骤，确认设备连接正常，点击软件的【工具集合】-&gt;【CAN串口控制配置】，弹出如下界面：</P>
+
+<P><IMG alt="" src="串口控制_CAN配置.png"></P>
+
+<P>根据自己需求，设置好串口参数和CAN总线参数，这里也需要配置2个表，一个是发送数据表，一个是接收数据表。发送数据表就是配置自动发送CAN数据的表，发送的数据可以通过串口进行修改，当然串口也可以发送不在这个表里面的其他ID数据。</P>
+
+<P>串口修改发送数据的时候，是根据已经勾选的ID在表中的索引号来进行访问的，具体怎么操作，可以参考《<A 
+href="串口控制CAN和LIN数据收发协议.htm">串口控制CAN和LIN数据收发协议</A>》。</P>
+
+<P>若想要监控某些ID的数据，可以配置好CAN接收调度表，填好需要监控数据的ID，这样就可以通过串口获取到对应ID接收到的最新数据了。</P>
+
+<H1><A name=串口控制举例>串口控制举例</A></H1>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">示例1：修改ID=0x01帧发送的数据（该ID已经通过上位机配置为主机写模式）</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><?xml:namespace 
+prefix = "o" ns = "urn:schemas-microsoft-com:office:office" 
+/><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">串口发送：01 
+10 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,128,0)">80 
+01</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,0)">00 
+05</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,255); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,255)">0A</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,255); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,255)">00 
+08</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,0)">11 
+22 33 44 55 66 77 88</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">07 
+D2</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">正常响应：01 
+10 80 01 00 05 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">78 
+0A</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=@阿里巴巴普惠体></FONT></SPAN>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">示例2：通过串口读取ID=0x02读取到的数据（该ID已经通过上位机配置为主机读操作）</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">串口发送：01 
+03 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,128,0)">80 
+02</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,0)">00 
+05</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">0D 
+C9</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">正常响应：01 
+03 0A </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,255); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,255)">00 
+08</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,0)">01 
+02 03 04 05 06 07 08</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">B3 
+B2</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=@阿里巴巴普惠体></FONT></SPAN>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">示例3：已经配置好CAN发送表，通过串口发送数据更改表中第一个ID对应的数据</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">串口发送：01 
+10</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,128,0)">88 
+00</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,0)">00 
+05</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,255); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,255)">0A</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,255); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,255)">00 
+08</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,0)">01 
+22 33 44 55 66 77 08</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">0F 
+B9</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">正常返回：01 
+10 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,128,0)">88 
+00 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,0)">00 
+05</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">2B 
+AA</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=@阿里巴巴普惠体></FONT></SPAN>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">示例4：通过串口控制CAN发送任意数据，此示例发送ID为0x456789的扩展帧数据</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">串口发送：01 
+10 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,128,0)">88 
+80</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,0)">00 
+07</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,255); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,255)">0E</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(128,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(128,128,0)">80 
+45 67 89</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,255); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,255)">00 
+08</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,0)">11 
+22 33 44 55 66 77 88</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">E0 
+23</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">正常返回：01 
+10 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,128,0)">88 
+80</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,0,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,0,0)">00 
+07</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">AB 
+83</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=@阿里巴巴普惠体></FONT></SPAN>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">示例5：读取CAN接收表里面第一个ID对应的最新数据。</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">串口发送数据：01 
+03 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,128,0)">88 
+00</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;00 
+07 </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">2F 
+A8</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0pt"><FONT face=@阿里巴巴普惠体><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">正常返回数据：01 
+03 0E </SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(128,128,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(128,128,0)">00 
+00 01 11</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,255); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,255)">00 
+08</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(0,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(0,255,0)">00 
+11 22 33 44 55 66 77</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; BACKGROUND: rgb(255,255,0); mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'; mso-highlight: rgb(255,255,0)">49 
+CB</SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></o:p></SPAN></FONT></P>
+
+<P><!--EndFragment--><!--EndFragment--><!--EndFragment--><!--EndFragment--><!--EndFragment--></P></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

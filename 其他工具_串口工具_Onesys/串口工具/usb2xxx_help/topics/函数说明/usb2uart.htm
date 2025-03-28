@@ -1,0 +1,1583 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>usb2uart</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(15);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=函数说明/usb2uart.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="usb2iic.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="usb2can.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="函数说明.htm">函数说明</A> &gt; </div>
+<div id="winchm_template_title">usb2uart</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+  <LI>
+<DIV><A href="#概述"><STRONG>概述</STRONG></A></DIV>
+  <LI>
+<DIV><A href="#UART_Init"><STRONG>UART_Init</STRONG></A></DIV>
+  <LI>
+<DIV><A 
+  href="#UART_WriteBytes"><STRONG>UART_WriteBytes</STRONG></A></DIV>
+  <LI>
+<DIV><A 
+  href="#UART_WriteBytesAsync"><STRONG>UART_WriteBytesAsync</STRONG></A></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#UART_WriteBytesInterval">UART_WriteBytesInterval</A></STRONG></DIV>
+  <LI>
+<DIV><A 
+  href="#UART_ReadBytes"><STRONG>UART_ReadBytes</STRONG></A></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#UART_ClearData">UART_ClearData</A></STRONG></DIV></LI></UL>
+<H1>
+<HR>
+</H1>
+<H1><A name=概述>概述</A>
+</H1>
+<P>USB2XXX有2路UART总线，2路UART可以同时使用，每路UART都有一个数据发送控制引脚，配置成485模式之后可以自动输出控制信号，该信号可以跟485收发器芯片的数据方向控制引脚连接，如此就可以实现输出485的信号。</P><STRONG>下面是本文函数可能会用到的一些宏定义：</STRONG> 
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//定义初始化UART初始化数据类型</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">typedef</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;</SPAN><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">struct</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;_UART_CONFIG{&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;unsigned&nbsp;<SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;BaudRate;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//波特率</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;unsigned&nbsp;<SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WordLength;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//数据位宽，0-8bit,1-9bit</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;unsigned&nbsp;<SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;StopBits;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//停止位宽，0-1bit,1-0.5bit,2-2bit,3-1.5bit</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;unsigned&nbsp;<SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;Parity;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//奇偶校验，0-No,4-Even,6-Odd</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;unsigned&nbsp;<SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;TEPolarity;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </SPAN><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//TE输出控制，0x80-输出TE信号，且低电平有效，0x81-输出TE信号，且高电平有效，0x00不输出TE信号</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}UART_CONFIG,*PUART_CONFIG;&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//定义函数返回错误代码</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_SUCCESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;(0)&nbsp;&nbsp;&nbsp;//函数执行成功</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_ERR_NOT_SUPPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;(-1)&nbsp;&nbsp;//适配器不支持该函数</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_ERR_USB_WRITE_FAIL&nbsp;&nbsp;&nbsp;&nbsp; 
+  (-2)&nbsp;&nbsp;//USB写数据失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_ERR_USB_READ_FAIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-3)&nbsp;&nbsp;//USB读数据失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_ERR_CMD_FAIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;(-4)&nbsp;&nbsp;//命令执行失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//数据位宽</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_WORD_LENGTH_8BIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_WORD_LENGTH_9BIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//停止位</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_STOP_BITS_1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_STOP_BITS_05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_STOP_BITS_2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  2</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_STOP_BITS_15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//奇偶校验位</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_PARITY_NO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_PARITY_EVEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_PARITY_ODD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//TE控制信号输出</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_TE_DISEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0x00</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_TE_EN_LOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x80</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#define&nbsp;UART_TE_EN_HIGH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x81</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<H1><FONT color=#000000><A 
+name=UART_Init><FONT color=#000000>
+<HR>
+UART_Init</FONT></A></FONT></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>初始化配置UART，必须要调用该函数之后才能调用其他数据收发函数。</P>
+<P><STRONG>原型： </STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;UART_Init(</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,&nbsp;unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;Channel,&nbsp;PUART_CONFIG&nbsp;pConfig);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>Channel</FONT>&nbsp; UART通道索引号，取值0或1。</P>
+<P><FONT color=#008080>pConfig</FONT>&nbsp; UART初始化配置参数，详细取值见该结构体定义说明。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0表示函数执行成功，其他值表示函数执行失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdlib.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;string.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb2uart.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//配置UART总线相关参数</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >UART_CONFIG&nbsp;UARTConfig;&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >unsigned&nbsp;<SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;UARTIndex&nbsp;=&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >UARTConfig.BaudRate&nbsp;=&nbsp;115200;&nbsp;&nbsp;</SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >UARTConfig.Parity&nbsp;=&nbsp;UART_PARITY_NO;&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >UARTConfig.StopBits&nbsp;=&nbsp;UART_STOP_BITS_1;&nbsp;&nbsp;</SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >UARTConfig.WordLength&nbsp;=&nbsp;UART_WORD_LENGTH_8BIT;&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >ret&nbsp;=&nbsp;UART_Init(DevHandle[0],UARTIndex,&amp;UARTConfig);&nbsp;&nbsp;</SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;!=&nbsp;UART_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Initialize&nbsp;device&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=UART_WriteBytes>UART_WriteBytes</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>UART发送数据，该函数为阻塞函数，也就是说必须要等到所有数据成功发送完毕之后才返回。</P>
+<P><STRONG>原型： </STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;UART_WriteBytes(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;Channel,unsigned&nbsp;</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pWriteData,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DataSize);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>Channel</FONT>&nbsp; UART通道索引号，取值0或1。</P>
+<P><FONT color=#008080>pWriteData</FONT>&nbsp; UART发送数据缓冲区首地址，也就是数据发送指针。</P>
+<P><FONT color=#008080>DataSize</FONT>&nbsp; 待发送的数据字节数。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0表示函数执行成功，其他值表示函数执行失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdlib.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;string.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb2uart.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;UARTIndex&nbsp;=&nbsp;0;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;WriteBuffer[1024];&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//UART发送数据</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >for</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;i=0;i&lt;</SPAN><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >sizeof</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(WriteBuffer);i++){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;WriteBuffer[i]&nbsp;=&nbsp;i;&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >ret&nbsp;=&nbsp;UART_WriteBytes(DevHandle[0],UARTIndex,WriteBuffer,<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >sizeof</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(WriteBuffer));&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;!=&nbsp;UART_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"UART&nbsp;write&nbsp;data&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=UART_WriteBytesAsync>UART_WriteBytesAsync</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>UART异步模式发送数据，调用该函数后，数据会发送到适配器中，然后判断上一次的数据是否发送完毕，若已经发送完毕则启动DMA传输数据，函数立即返回，否则等待上一次的数据发送完毕之后再启动DMA开始发送数据，使用此函数可以提高UART发送数据带宽。</P>
+<P><STRONG>原型： </STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;UART_WriteBytesAsync(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;Channel,unsigned&nbsp;</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pWriteData,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DataSize);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>Channel</FONT>&nbsp; UART通道索引号，取值0或1。</P>
+<P><FONT color=#008080>pWriteData</FONT>&nbsp; UART发送数据缓冲区首地址，也就是数据发送指针。</P>
+<P><FONT color=#008080>DataSize</FONT>&nbsp; 待发送的数据字节数。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0表示函数执行成功，其他值表示函数执行失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdlib.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;string.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb2uart.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;UARTIndex&nbsp;=&nbsp;0;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;WriteBuffer[1024];&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//UART发送数据</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >for</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;i=0;i&lt;</SPAN><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >sizeof</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(WriteBuffer);i++){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;WriteBuffer[i]&nbsp;=&nbsp;i;&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >ret&nbsp;=&nbsp;UART_WriteBytesAsync(DevHandle[0],UARTIndex,WriteBuffer,<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >sizeof</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(WriteBuffer));&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;!=&nbsp;UART_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"UART&nbsp;write&nbsp;data&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=UART_WriteBytesInterval>UART_WriteBytesInterval</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>UART间隔模式发送数据，也就是每个字节之间会增加指定的延时时间。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='LIST-STYLE-TYPE: none; FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: "Microsoft YaHei", Helvetica, Arial, "Lucida Grande", Tahoma, sans-serif; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px -15px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word'>
+  <LI class=alt 
+  style="LIST-STYLE-TYPE: decimal; FONT-SIZE: 15px; FONT-FAMILY: inherit; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: ; VERTICAL-ALIGN: baseline; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; BORDER-BOTTOM-COLOR: ; PADDING-TOP: 0px; PADDING-LEFT: 10px; BORDER-LEFT: rgb(204,204,204) 1px dashed; MARGIN: 0px 35px 0px 50px; BORDER-RIGHT-COLOR: ; LINE-HEIGHT: 18px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px; border-image: initial" 
+  ><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;UART_WriteBytesInterval(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;Channel,unsigned&nbsp;</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pWriteData,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DataSize,unsigned&nbsp;</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;IntervalTimeMs);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P></P>
+<P><STRONG>参数：</STRONG> </P>
+<P><FONT color=#008080>DevHandle</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>Channel</FONT>&nbsp; UART通道索引号，取值0或1。</P>
+<P><FONT color=#008080>pWriteData</FONT>&nbsp; UART发送数据缓冲区首地址，也就是数据发送指针。</P>
+<P><FONT color=#008080>DataSize</FONT>&nbsp; 待发送的数据字节数。</P>
+<P><FONT color=#008080>IntervalTimeMs</FONT> 发送数据字节间间隔时间，单位为毫秒。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0表示函数执行成功，其他值表示函数执行失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp initial?? text-decoration-color: initial; 
+text-decoration-style: 0px; -webkit-text-stroke-width: normal; 
+font-variant-caps: font-variant-ligatures: TEXT-INDENT: 2px; PADDING-RIGHT: 
+LETTER-SPACING: 32px; 1px 0px MARGIN: 2; WIDOWS: ORPHANS: BORDER-LEFT: 
+PADDING-LEFT: PADDING-TOP: FONT-STYLE: PADDING-BOTTOM: rgb(102,102,102); COLOR: 
+400; FONT-WEIGHT: none; TEXT-TRANSFORM: BORDER-BOTTOM: WORD-SPACING: 
+WHITE-SPACE: BORDER-RIGHT: sans-serif; Arial, Grande?, Lucida>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdlib.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  > &nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;string.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb2uart.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  > &nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;UARTIndex&nbsp;=&nbsp;0;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;WriteBuffer[1024];&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >//UART发送数据</SPAN> <SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >for</SPAN> <SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(</SPAN> <SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;i=0;i&lt;</SPAN> <SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >sizeof</SPAN> <SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(WriteBuffer);i++){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;WriteBuffer[i]&nbsp;=&nbsp;i;&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >ret&nbsp;=&nbsp;UART_WriteBytesInterval(DevHandle[0],UARTIndex,WriteBuffer,<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >sizeof</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(WriteBuffer),2);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if </SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;!=&nbsp;UART_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"UART&nbsp;write&nbsp;data&nbsp;error!\n"</SPAN> <SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN> </SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp; <SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=UART_ReadBytes>UART_ReadBytes</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>获取UART接收数据缓冲区中的数据，调用该函数后会自动清除已经获取到的数据。</P>
+<P><STRONG>原型： </STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;UART_ReadBytes(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;Channel,unsigned&nbsp;</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;*pReadData,</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;TimeOutMs);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>Channel</FONT>&nbsp; UART通道索引号，取值0或1。</P>
+<P><FONT color=#008080>pReadData</FONT>&nbsp; UART接收数据缓冲区首地址，也就是数据存储指针。</P>
+<P><FONT color=#008080>TineOutMs</FONT>&nbsp; 
+接收数据超时时间，若在超时时间内没有接收到数据则会一直等待，直到接收到数据或者超时时间到为止。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>大于等于0表示接收到的数据字节数，小于0表示读取数据出错。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdlib.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;string.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb2uart.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;ReadBuffer[10*1024];&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;UARTIndex&nbsp;=&nbsp;0;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;ret,ReadDataNum&nbsp;=&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >ret&nbsp;=&nbsp;UART_ReadBytes(DevHandle[0],UARTIndex,ReadBuffer,5000);&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;&gt;&nbsp;0){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;ReadDataNum&nbsp;+=&nbsp;ret;&nbsp;&nbsp;</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >for</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(</SPAN><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;i=0;i&lt;ret;i++){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"%02X&nbsp;"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,ReadBuffer[i]);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(((i+1)%16)==0){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"\nReadDataNum&nbsp;=&nbsp;%d\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,ReadDataNum);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;</SPAN><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;&lt;&nbsp;0){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"ret&nbsp;=&nbsp;%d\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,ret);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<H1><A name=UART_ClearData>UART_ClearData</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>清除适配器已经接收到的UART数据。</P>
+<P><STRONG>原型： </STRONG></P>
+<OL class=dp-cpp 
+style='LIST-STYLE-TYPE: none; FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: "Microsoft YaHei", Helvetica, Arial, "Lucida Grande", Tahoma, sans-serif; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px -15px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word'>
+  <LI class=alt 
+  style="LIST-STYLE-TYPE: decimal; FONT-SIZE: 15px; FONT-FAMILY: inherit; BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-COLOR: ; VERTICAL-ALIGN: baseline; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; BORDER-BOTTOM-COLOR: ; PADDING-TOP: 0px; PADDING-LEFT: 10px; BORDER-LEFT: rgb(204,204,204) 1px dashed; MARGIN: 0px 35px 0px 50px; BORDER-RIGHT-COLOR: ; LINE-HEIGHT: 18px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px; border-image: initial" 
+  ><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;WINAPI&nbsp;UART_ClearData(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; FONT-WEIGHT: bold; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >char</SPAN><SPAN 
+  style="FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;Channel);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT> 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>Channel</FONT>&nbsp; UART通道索引号，取值0或1。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0表示函数执行成功，其他值表示函数执行失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdlib.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;&lt;string.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb_device.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >#include&nbsp;"usb2uart.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;ReadBuffer[10*1024];&nbsp;&nbsp;</SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >uint8_t&nbsp;UARTIndex&nbsp;=&nbsp;0;&nbsp;&nbsp;</SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;ret,ReadDataNum&nbsp;=&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN> 
+
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >ret&nbsp;=&nbsp;UART_ClearData(DevHandle[0],UARTIndex</SPAN> 
+
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  ><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;==&nbsp;0){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"Clear datasuccess\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}<SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;</SPAN><SPAN class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >(ret&nbsp;&lt;&nbsp;0){&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >"ret&nbsp;=&nbsp;%d\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >,ret);&nbsp;&nbsp;</SPAN></SPAN> 
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px" 
+  ><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+  >}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

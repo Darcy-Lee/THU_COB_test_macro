@@ -1,0 +1,18 @@
+R9F 0E
+RB2 70 76 04
+RB3 31 A4 0A 17 14
+RB4 31 //Contrast on: 31
+RB5 61 //HDR on
+RB6 00
+RB7 71 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
+RD6 14 24 08
+//R57 00 //All off
+//R57 01 //Contrast on
+//R57 02 //EDGE on
+//R57 04 //ENSUN on
+//----HDR on----
+R9F 05 
+RB3 82 00 00 99 99 09 99 00 3E FE//HDR gamma ignore
+R57 08 
+//----HDR on----
+//R57 10 //Papermode on

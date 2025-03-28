@@ -1,0 +1,230 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>使用按键控制CAN和LIN实现数据发送</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(75);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=应用案例/使用按键控制CAN和LIN实现数据发送.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="使用串口控制CAN和LIN实现数据收发.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="../$$unsavedpage1.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="应用案例.htm">应用案例</A> &gt; </div>
+<div id="winchm_template_title">使用按键控制CAN和LIN实现数据发送</div>
+<div id="winchm_template_content">
+<H1 
+style="MARGIN: 13pt auto 13pt 21.25pt; TEXT-INDENT: -21.25pt; mso-list: l0 level1 lfo1; mso-para-margin-left: 0.0000gd; mso-char-indent-count: 0.0000"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 黑体; mso-ansi-font-weight: bold"><SPAN 
+style="mso-list: Ignore">1.<SPAN>&nbsp;</SPAN></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 黑体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-spacerun: 'yes'"><FONT face=黑体>编辑需要发送的</FONT><FONT face=Arial>CAN&amp;LIN</FONT><FONT face=黑体>数据</FONT></SPAN></B><B style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 黑体; mso-ansi-font-weight: bold; mso-spacerun: 'yes'"><o:p></O:P></SPAN></B></H1>
+<H3 
+style="MARGIN: 13pt auto 13pt 0pt; TEXT-INDENT: 0pt; mso-list: l0 level2 lfo1; mso-para-margin-left: 0.0000gd; mso-char-indent-count: 0.0000"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-ansi-font-weight: bold"><SPAN 
+style="mso-list: Ignore">1.1<SPAN>&nbsp;</SPAN></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>编辑</FONT><FONT face=Calibri>CAN</FONT><FONT face=宋体>数据</FONT></SPAN></B><B style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></O:P></SPAN></B></H3>
+<P class=MsoNormal style="MARGIN: 0pt; mso-para-margin-left: 0.0000gd"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>打开</FONT><FONT face=Calibri>TCANLINPro</FONT><FONT face=宋体>软件后，若需要通过</FONT><FONT face=Calibri>CAN1</FONT><FONT face=宋体>发送数据，则启动</FONT><FONT face=Calibri>CAN1</FONT><FONT face=宋体>，若需要</FONT><FONT face=Calibri>CAN2</FONT><FONT face=宋体>发送数据，则启动</FONT><FONT face=Calibri>CAN2</FONT><FONT face=宋体>，若需要</FONT><FONT face=Calibri>2</FONT><FONT face=宋体>通道同时发送数据，那么就分别启动</FONT><FONT face=Calibri>2</FONT><FONT face=宋体>个通道。点击启动时会弹出</FONT><FONT face=Calibri>CAN</FONT><FONT face=宋体>相关配置参数，比如波特率值，选择是否接入终端电阻，这些设置必须正确，在写入</FONT><FONT face=Calibri>CAN</FONT><FONT face=宋体>数据到设备的时候，这些初始化配置值也会写入设备。</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt; mso-para-margin-left: 0.0000gd"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>启动</FONT><FONT face=Calibri>CAN</FONT><FONT face=宋体>通道后，点击【发送</FONT><FONT face=Calibri>CAN</FONT><FONT face=宋体>数据】</FONT><FONT face=Calibri>-&gt;</FONT><FONT face=宋体>【普通发送】，弹出如下界面：</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt; mso-para-margin-left: 0.0000gd"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p><IMG alt="" src="../软件使用/TCANLINPro软件使用教程/image/CAN普通发送.png">&nbsp;</O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt; mso-para-margin-left: 0.0000gd"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>将要发送的数据添加到列表里面，每帧后面的延时就是控制当前帧跟下一帧之间的时间间隔。编辑好发送的数据后，点击【列表操作】</FONT><FONT face=Calibri>-&gt;</FONT><FONT face=宋体>【导出】，将列表文件导出为</FONT><FONT face=Calibri>.canlist</FONT><FONT face=宋体>格式文件备用。</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<H3 
+style="MARGIN: 13pt auto 13pt 0pt; TEXT-INDENT: 0pt; mso-list: l0 level2 lfo1; mso-para-margin-left: 0.0000gd; mso-char-indent-count: 0.0000"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-ansi-font-weight: bold"><SPAN 
+style="mso-list: Ignore">1.2<SPAN>&nbsp;</SPAN></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>编辑</FONT></SPAN></B><B style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"> 
+</SPAN></B><B style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=Calibri>LIN</FONT><FONT face=宋体>数据</FONT></SPAN></B><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></O:P></SPAN></B></H3>
+<P class=MsoNormal style="MARGIN: 0pt; mso-para-margin-left: 0.0000gd"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>打开</FONT><FONT face=Calibri>TCANLINPro</FONT><FONT face=宋体>软件后，若需要通过</FONT><FONT face=Calibri>LIN1</FONT><FONT face=宋体>发送数据，则启动</FONT><FONT face=Calibri>LIN1</FONT><FONT face=宋体>，若需要</FONT><FONT face=Calibri>LIN2</FONT><FONT face=宋体>发送数据，则启动</FONT><FONT face=Calibri>LIN2</FONT><FONT face=宋体>，若需要</FONT><FONT face=Calibri>2</FONT><FONT face=宋体>通道同时发送数据，那么就分别启动</FONT><FONT face=Calibri>2</FONT><FONT face=宋体>个通道。点击启动时会弹出</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>相关配置参数，比如波特率值，选择是否使能</FONT><FONT face=Calibri>12V</FONT><FONT face=宋体>输出，选择主机模式，这些设置必须正确，在写入</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>数据到设备的时候，这些初始化配置值也会写入设备。</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt; mso-para-margin-left: 0.0000gd"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>启动</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>通道后，点击【发送</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>数据】</FONT><FONT face=Calibri>-&gt;</FONT><FONT face=宋体>【普通发送】，弹出如下界面：</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p><IMG alt="" src="../软件使用/TCANLINPro软件使用教程/image/LIN普通发送.png">&nbsp;</O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt; mso-para-margin-left: 0.0000gd"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>将要发送的数据添加到列表里面，每帧后面的延时就是控制当前帧跟下一帧之间的时间间隔。编辑好发送的数据后，点击【列表操作】</FONT><FONT face=Calibri>-&gt;</FONT><FONT face=宋体>【导出】，将列表文件导出为</FONT><FONT face=Calibri>.linlist</FONT><FONT face=宋体>格式文件备用。</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<H2 
+style="MARGIN: 13pt auto 13pt 21.25pt; TEXT-INDENT: -21.25pt; mso-list: l0 level1 lfo1; mso-para-margin-left: 0.0000gd; mso-char-indent-count: 0.0000"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 黑体; mso-ansi-font-weight: bold"><SPAN 
+style="mso-list: Ignore">2.<SPAN>&nbsp;</SPAN></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 黑体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-spacerun: 'yes'"><FONT face=黑体>将编辑好的数据写入设备</FONT></SPAN></B><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 黑体; mso-ansi-font-weight: bold; mso-spacerun: 'yes'"><o:p></O:P></SPAN></B></H2>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>数据编辑好之后，关闭发送数据对话框，点击软件菜单【工具集合】</FONT><FONT face=Calibri>-&gt;</FONT><FONT face=宋体>【按键功能配置】，弹出如下对话框：</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p><IMG alt="" src="../软件使用/TCANLINPro软件使用教程/image/按键功能配置.png">&nbsp;</O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>软件会根据产品型号自动添加支持的按键，并添加到列表里面，比如要发送</FONT><FONT face=Calibri>CAN</FONT><FONT face=宋体>数据，那么就在【数据类型】栏选择</FONT><FONT face=Calibri>CAN</FONT><FONT face=宋体>，若要发送</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>数据，那么就在【数据类型】栏选择</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>，【发送通道】根据自己实际硬件连接选择即可，【触发类型】可以选择下降沿触发或者低电平触发，下降沿触发是在按键引脚跟</FONT><FONT face=Calibri>GND</FONT><FONT face=宋体>短接的时候发送一次数据，数据发送完毕后就停止发送，再次短接的时候就再发送一次，低电平触发是检测到按键引脚跟</FONT><FONT face=Calibri>GND</FONT><FONT face=宋体>短接后就一直发送数据，直到按键引脚跟</FONT><FONT face=Calibri>GND</FONT><FONT face=宋体>断开为止，按键引脚内部有上拉电阻，空闲不接的时候是高电平。</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>配置好发送数据类型和发送通道后，点击【选择文件】选择第一步编辑到的数据文件，然后点击【写入设备】按钮即可。</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P>
+<H2 
+style="MARGIN: 13pt auto 13pt 21.25pt; TEXT-INDENT: -21.25pt; mso-list: l0 level1 lfo1; mso-para-margin-left: 0.0000gd; mso-char-indent-count: 0.0000"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 黑体; mso-ansi-font-weight: bold"><SPAN 
+style="mso-list: Ignore">3.<SPAN>&nbsp;</SPAN></SPAN></SPAN><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: 黑体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ansi-font-weight: bold; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-spacerun: 'yes'"><FONT face=黑体>按键控制发送</FONT><FONT face=Arial>CAN&amp;LIN</FONT><FONT face=黑体>数据</FONT></SPAN></B><B style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 黑体; mso-ansi-font-weight: bold; mso-spacerun: 'yes'"><o:p></O:P></SPAN></B></H2>
+<P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-spacerun: 'yes'"><FONT face=宋体>将数据写入设备后，将适配器通过</FONT><FONT face=Calibri>USB</FONT><FONT face=宋体>充电器供电（不能接电脑，否则无法进入离线发送数据模式），上电后，蓝色灯会闪烁大概</FONT><FONT face=Calibri>10</FONT><FONT face=宋体>秒，然后若长亮了，那么就成功进入离线模式了，按照软件上的配置将按键引脚跟</FONT><FONT face=Calibri>GND</FONT><FONT face=宋体>接通后就可以控制数据发送了。</FONT></SPAN><SPAN 
+style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体; mso-spacerun: 'yes'"><o:p></O:P></SPAN></P><!--EndFragment--></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

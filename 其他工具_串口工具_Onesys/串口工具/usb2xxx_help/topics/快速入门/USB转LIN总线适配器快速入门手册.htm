@@ -1,0 +1,259 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>USB转LIN总线适配器快速入门手册</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(78);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=快速入门/USB转LIN总线适配器快速入门手册.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="../USB2XXX快速入门.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="../API函数接口定义原型/函数原型.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="../$$unsavedpage1.htm">快速入门</A> &gt; </div>
+<div id="winchm_template_title">USB转LIN总线适配器快速入门手册</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+  <LI>
+  <DIV><STRONG><A href="#1.前言">1 
+  前言</A></STRONG></DIV>
+  <LI>
+  <DIV>
+<STRONG ><A 
+  href="#2.软件安装，驱动安装">2 软件安装，驱动安装</A> 
+  </STRONG></DIV>
+  <LI>
+  <DIV><STRONG><A href="#3.硬件连接及使用">3 
+  硬件连接及使用</A> 
+</STRONG></DIV>
+  <LI>
+  <DIV><STRONG><A 
+  href="#3.1 监控LIN总线数据">3.1 监控LIN总线数据</A> </STRONG></DIV>
+  <LI>
+  <DIV><STRONG><A 
+  href="#3.2 向从机读写数据">3.2 向从机读写数据</A> </STRONG></DIV></LI></UL>
+
+<HR> 
+ <H1><A name="1.前言 ">1.<A name=前言>前言</A> </A>             </H1>
+<P>本文档介绍如何快速使用USB转LIN适配器，主要目的是让用户能快速的了解USB转LIN产品如何使用，产品其他功能可以参考《<A 
+href="../软件使用/TCANLINPro软件使用教程/TCANLINPro软件使用教程.htm">TCANLINPro软件使用教程</A>》。</P>
+<H1>
+<HR>
+</H1><STRONG><FONT size=6><A 
+name=2.软件安装，驱动安装>
+<P><STRONG><FONT size=6>2.<A name=软件安装，驱动安装><STRONG><FONT size=6>软件安装，驱动安装</FONT></STRONG></A></FONT></STRONG></P>
+<P></A></FONT></STRONG></P>
+<H2>2.1 软件下载</H2>
+<P>软件下载地址：<A 
+href="http://www.toomoss.com/download/7-cn.html">TCANLINPro软件下载-重庆图莫斯电子科技有限公司官网 
+(toomoss.com)</A></P>
+<P><IMG alt="" src="软件下载.png"></P>
+<P>打开下载页面后会出现如上图所示软件下载列表，根据自己使用的系统下载对应版本的软件即可。</P>
+<H2>2.2 软件安装</H2>
+<H3>2.2.1 Windows系统安装</H3>
+<P>在windows端，可能会存在杀毒软件误报我们软件有威胁，在下载安装软件前，建议先关闭杀毒软件，以免出现安装异常。将下载文件解压出来后，双击解压出来的文件即可开始安装，根据提示一路下一步即可，安装完成后会自动安装驱动程序，无需单独安装驱动程序。</P>
+<H3>2.2.2 Linux系统安装</H3>
+<P>Linux端下载下来后为".tar.gz"类型文件，比如使用“<SPAN 
+style='FONT-SIZE: 16px; FONT-FAMILY: -apple-system, "SF UI Text", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, SimHei, SimSun; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(77,77,77); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; text-decoration-thickness: initial'>tar&nbsp; 
+-zxvf &nbsp;<FONT color=#000000>TCANLINPro_v1.7.tar.gz</FONT></SPAN>”命令解压文件，解压出来后，进入程序目录，用管理员权限执行“sudo 
+./install.sh”命令安装程序，程序安装完毕之后会自动运行程序。</P>
+<H3>2.2.3 Mac系统安装</H3>
+<P>Mac系统下为“.dmg”格式文件，双击改文件，点击“打开”，然后将里面的文件夹拖出来放到本地目录。选择软件包，点击鼠标右键，选择“显示包内容”，然后找到“Contents/MacOS/TCANLINPro”文件，双击它即可启动程序。</P>
+<P><FONT color=#ff0000>注意：必须按照上面所述启动程序，否则无法在LIN视图显示收发的数据！</FONT></P>
+<H1><A name=3.硬件连接及使用>3.<A name=软件安装，驱动安装>硬件连接及使用</A></A></H1>
+<H2><A name="3.1 监控LIN总线数据">3.1 监控LIN总线数据</A> </H2>
+<P>若要抓取现有总线数据，比如取抓当前车上氛围灯的控制数据，空调控制器的控制数据，灯和空调都是通过LIN总线连接到车上LIN总线上的，且都在正常工作，这种情况下就可以使用LIN从机监控。</P>
+<H3>3.1.1 硬件连接</H3>
+<P><IMG alt="" src="从机模式监控数据.png"> </P>
+<P> 如上图所示为监控LIN总线数据的接线示意图，所谓监控LIN总线数据是指去抓取现有LIN总线上的数据，在LIN总线上至少有一个主机和一个从机在进行通信（只有主机在发送数据也能监控），LIN所有数据传输都是主机发起，从机是不能主动发送数据出来的，比如车窗控制器，水泵，氛围灯，空调控制器，这些都属于LIN从机，它是不能主动发送数据出来，所以不能将他们连接到我们设备进行数据监控（从机不会发送数据出来），若需要控制从节点，可以参考后续章节说明。</P>
+<P> UTA0401产品外壳上的【12V】引脚就是上图中的VBAT引脚，该引脚即可以作为电源引脚给外部设备供电，也可以作为输入引脚，给内部LIN总线电路供电，作为数据监控时，若LIN总线高电平是12V，那么可以不接该引脚，只将LIN和GND接到LIN总线上的LIN和GND线即可，若LIN高电平是24V电压，那么只需要将该引脚接入24V电压即可。</P>
+<P> LIN和GND具体使用引脚可以参考【<A 
+href="../引脚定义说明文档.htm">引脚定义说明文档</A>】或者参考产品外壳上的引脚功能定义说明。</P>
+<H3>3.1.2 软件配置</H3>
+<P><IMG alt="" src="启动LIN.png"> </P>
+<P>打开软件后，主界面如上图所示，点击对应的LIN后面的【启动】按钮后，弹出LIN配置界面，如下图所示：</P>
+<P><IMG alt="" src="LIN从机配置.png"> </P>
+<P>监控数据，主从模式选择为【从机】，若知道总线波特，则输入对应的波特率值即可，若LIN总线高电平是12V，那么VBAT输出选择12V即可，若LIN总线电压高于12V，比如为24V，那么此处也可以选择12V，然后在VBAT引脚外接24V电压。</P>
+<P>若不清楚总线上的波特率，可以点击【探测波特率】对总线波特率进行探测，点击后如下图所示：</P>
+<P><IMG alt="" src="从机探测波特率.png"> </P>
+<P>注意！由于是去监控LIN总线数据，所以我们认为LIN总线上本身是有数据在传输的，所以需要勾选【总线上接有其他主机，并且有数据在传输】，然后点击【开始】按钮，探测到波特率后，会自动显示探测到的波特率值。</P>
+<P>若在此处没有探测到波特率，有以下几种可能：</P>
+<P>1，总线上本身没有数据在传输；</P>
+<P>2，接线错误，比如LIN线没接对，或者是GND没接对；</P>
+<P>3，该总线不是标准的LIN总线（可以用示波器或者逻辑分析仪抓波形发给我们确认）；</P>
+<P>探测到波特率后，回到参数配置界面，点击【确定】即可，若抓到了数据，数据就会在主界面进行显示，如下图所示：</P>
+<P><IMG alt="" src="从机监控数据.png"> </P>
+<H2><A name="3.2 向从机读写数据">3.2 向从机读写数据</A> </H2>
+<P>若用户手上只有一个LIN从机模块，比如一个汽车用水泵，一个车载氛围灯，或者一个空气质量监控器，它们都是LIN总线接口的，并没有连接到车上，但是想要通过LIN去控制它们，或者从它们内部读取一些数据出来，那么就可以将我们适配器配置为主机模式去控制。</P>
+<H3>3.2.1 硬件连接</H3>
+<P>使用我们适配器给LIN从机模块供电：</P>
+<P><IMG alt="" src="LIN适配器供电（主机）.png"> </P>
+<P>使用外部电源给LIN从机模块供电：</P>
+<P><IMG alt="" src="外部电源供电（主机）.png"> </P>
+<H3>3.2.2 软件配置</H3>
+<P>点击对应LIN通道后面的启动后，弹出LIN配置界面，如下图所示：</P>
+<P><IMG alt="" src="LIN主机配置.png"> </P>
+<P>主从模式配置为【主机】，若知道波特率，则配置为对应正确的波特率，若不知道波特率可以点击【探测波特率】探测节点波特率。</P>
+<P>注意：适配器配置为主机模式波特率，探测原理是在某个波特率下，向从节点发送帧头，看是否有数据响应，若有数据响应，则认为当前波特率没问题，但是有些从机节点不支持主机读数据操作，所以这种情况下是无法探测到正确波特率的。</P>
+<P>若是通过我们适配器给从机设备供电，需要配置VBAT输出【12V】，并且VBAT引脚需要连接到LIN从机模块的电源正极。</P>
+<P>若不需要使用我们适配器给从机节点供电，那么也需要配置VBAT输出【12V】，是因为适配器内部的LIN相关电路需要该12V，否则LIN无法正常工作。</P>
+<P>同步间隔宽度默认即可，若需要更宽的同步间隔宽度，可根据实际需求进行配置。</P>
+<P>配置好相关参数后，点击【确定】后，如下图所示：</P>
+<P><IMG alt="" src="LIN主机主界面.png"></P>
+<P>此时，界面上并不会有任何数据，因为我们设备是主机，所以读写数据都要主机去操作才行，点击菜单【发送LIN数据】-&gt;【普通发送】，弹出如下图所示界面：</P>
+<P><IMG alt="" src="主机读写界面.png"></P>
+<P>若需要主机发送数据给从机，那么需要配置好写数据ID，并设置好需要发送的数据，填写完毕后，点击【发送】即可实现一次数据发送，若需要连续发送，可以设置发送次数大于1，或者将数据添加到列表后，在列表里面发送，发送后会在主界面显示发送的数据，如下图所示：</P>
+<P><IMG alt="" src="主机发送数据主界面.png"></P>
+<P>主界面上若没有显示发送出去的数据，那么有可能是LIN总线跟电源正极或者是GND短路了，若是数据出现错误，那么有可能该ID是从机发送数据，需要把帧类型选择为【主机读】模式。</P>
+<P>若想要向从机读取数据，需要先配置好读数据ID，并将数据类型配置为【主机读】，然后点击发送，如下图所示：</P>
+<P><IMG alt="" src="主机读主界面.png"></P>
+<P>若正常读到了数据，那么就会在数据栏显示读到的数据，若没有读到数据，那么就会在事件栏显示【SLAVE NO 
+RESPONSE】，也就是从机没有正常响应数据。</P>
+<P>若出现从机没正常响应数据，一般是因为以下几个原因：</P>
+<P>1，波特率配置错误；</P>
+<P>2，接线错误；</P>
+<P>3，读数据ID配置错误（当前ID不支持读操作）；</P>
+<P>若不清楚读数据是哪一个ID，也可以通过如下配置快速测出哪些ID可以读数据：</P>
+<P><IMG alt="" src="主机尝试获取响应ID.png"></P>
+<P>然后再回到主界面，看下哪些ID有响应数据，那么这些ID就是可以返回数据的。</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<H2> &nbsp;</H2></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

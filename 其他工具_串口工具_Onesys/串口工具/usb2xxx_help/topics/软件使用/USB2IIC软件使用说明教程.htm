@@ -1,0 +1,245 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>USB2IIC软件使用教程</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(27);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=软件使用/USB2IIC软件使用说明教程.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="软件使用.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="I2C监控软件使用教程.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="软件使用.htm">软件使用</A> &gt; </div>
+<div id="winchm_template_title">USB2IIC软件使用教程</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+  <LI>
+<DIV><A href="#前言"><STRONG>前言</STRONG></A></DIV></LI>
+  <LI>
+<DIV><A 
+  href="#主机模式读写"><STRONG>主机模式读写</STRONG></A></DIV></LI>
+  <LI>
+<DIV><A 
+  href="#从机模式读写"><STRONG>从机模式读写</STRONG></A></DIV></LI></UL>
+<H1>
+<HR>
+</H1>
+<H1><A name=前言>前言</A></H1>
+<P>本文主要介绍USB2IIC软件的使用方法，并给出了I2C主机模式下对从机的常见3种操作模式，并给出了不同模式下I2C总线上输出的具体波形图，阅读本文对使用USB2IIC软件有非常大的帮助。</P>
+<P>软件的下载安装请参考《<A href="../USB2XXX快速入门.htm" >USB2XXX快速入门</A>》。</P>
+<P>I2C总线硬件连接请参考《<A 
+href="../引脚定义说明文档.htm">引脚定义说明文档</A>》。</P>
+<P>I2C总线二次开发API函数说明请参考《<A 
+href="../函数说明/usb2iic.htm">usb2iic</A>》</P>
+<P><IMG alt="" src="../图片/OPEN_IIC.png"></P>
+<P>打开软件后，主界面如下：</P>
+<P><IMG alt="" src="../图片/USB2IIC_MAIN.png"></P>
+<P><STRONG>设备索引：</STRONG>选择需要控制的USB2XXX设备，若当前有多个USB2XXX设备接入电脑，那么在这里就会有多个选择，若只接了一个，则只有一个选择，若此处是空白的，没有可选项，那么可能是没有接入USB2XXX设备或者是USB2XXX的驱动没能正常安装。</P>
+<P><STRONG>通道索引</STRONG>：选择当前需要控制的I2C总线通道，每个通道对应的具体引脚可以参考《<A 
+href="../引脚定义说明文档.htm">引脚定义说明文档</A>》。</P>
+<P><STRONG>主从模式：</STRONG>当前USB2XXX适配器的I2C为主机模式还是从机模式，若需要去控制从机，那么必须配置为主机模式，若需要接收主机发送的数据或者向主机返回数据，则选择为从机模式。</P>
+<P><STRONG>内部上拉：</STRONG>I2C总线接口是开漏模式，所以要正常传输数据，I2C总线上必须接上拉电阻，若外接I2C总线上没有上拉电阻，则可以在软件上选择使能内部上拉（内部上拉电阻较大，大概为40K，建议还是外接1K到10K范围内的上拉电阻）。</P>
+<P><STRONG>地址模式：</STRONG>当前I2C从机使用的地址模式，目前大多数I2C从机是使用的7bit地址，根据自己的从机就行对应选择即可，若对I2C的从机地址不是很明白，可以参考《<A 
+href="http://www.toomoss.com/news/12-cn.html" 
+target=_blank>IIC/I2C从地址之7位，8位和10位详解</A>》文档。</P>
+<P><STRONG>时钟频率：</STRONG>当前I2C总线的时钟频率，根据从机支持的最大时钟频率进行选择，若I2C总线接线太长，建议尽量降低时钟频率，这样可以减少数据传输出错的可能。</P>
+<P><STRONG>从机地址：</STRONG>接到I2C总线上的从设备地址，该地址不包含读写位，比如24系列EEPROM包含读写位的地址一般是0xA0，那么去掉读写位之后的地址就是(0xA0&gt;&gt;1) 
+= 0x50。若不清楚从机地址，可以点击菜单“操作”-&gt;“扫描从机”进行自动识别从机地址。</P>
+<P><STRONG>接口电压：</STRONG>选择当前I2C总线输出的高电平电压，此选项只针对带电平转换功能的USB2XXX适配器有效。</P>
+<H1>
+<HR>
+</H1>
+<H1><A name=主机模式读写>主机模式读写</A></H1>
+<H2>基础读写</H2>
+<H3>写数据</H3>
+<P>点击“写数据”按钮，适配器会将界面中发送数据框中的数据发送到总线上，若发送从机地址时，若从机没有应答，那么后续的数据不会再继续发送。界面设置跟总线输出波形如下图所示：</P>
+<P><IMG alt="" src="../图片/IIC主机写数据.png"></P>
+<P><IMG alt="" src="../图片/IIC主机写数据波形.png"></P>
+<H3>读数据</H3>
+<P>点击“读数据”按钮，适配器会向总线上发送从机地址加读数据位，若从机有应答，则开始向从机读取数据，读取数据字节数为软件上设置的“读字节数”参数，读数据时软件设置和总线输出的波形如下图所示：</P>
+<P><IMG alt="" src="../图片/IIC主机读数据.png"></P>
+<P><IMG alt="" src="../图片/IIC主机读数据波形.png"></P>
+<H3>写读数据</H3>
+<P>点击“写读数据”，适配器会先将发送数据框中的数据发送出去，然后不产生STOP信号，直接产生RSTART信号开始向从机读取数据，该操作常用于向从机指定寄存器读取数据操作，写读数据操作软件设置和总线输出波形图如下所示：</P>
+<P><IMG alt="" src="../图片/IIC主机写读数据.png"></P>
+<P><IMG alt="" src="../图片/IIC主机写读波形.png"></P>
+<H2>寄存器读写</H2>
+<H3>写数据</H3>
+<P>点击“写数据”，适配器会在要发送的数据前面加上寄存器地址数据，地址字节数据由软件界面上设置，软件设置和对应的波形图如下所示：</P>
+<P><IMG alt="" src="../图片/IIC主机寄存器写数据.png"></P>
+<P><IMG alt="" src="../图片/IIC主机寄存器写数据波形.png"></P>
+<H3>读数据</H3>
+<P>点击“读数据”，适配器会先发送从机地址和寄存器地址，然后产生RSTART信号，向从机读取数据，读数据字节数为软件上设置的“读数据字节数”。读数据软件设置跟对应的波形如下图所示：</P>
+<P><IMG alt="" src="../图片/IIC主机寄存器读数据.png"></P>
+<P><IMG alt="" src="../图片/IIC主机寄存器读数据波形.png"></P>
+<H2>列表读写</H2>
+<P>列表模式读写数据是指将多个不同的操作放到一个列表里面，然后可以循环执行或者单次执行这个列表，因为在实际使用中，很多芯片的读写控制是需要按照一定的先后顺序发送指令的，同时也对时间有较为严格的要求，所以若都只是通过手动的收发数据，可能达不到实际的测试效果。</P>
+<P><IMG alt="" src="../图片/IIC主机列表读写数据.png"></P>
+<OL>
+  <LI>
+<DIV 
+  >添加一行操作到列表，添加到列表后，可以根据实际情况选择操作类型，设置需要发送的数据或者需要读取的数据字节数，以及该条操作完成后需要的延时时间。</DIV>
+  <LI>
+<DIV>删除当前选择的列表行。</DIV>
+  <LI>
+<DIV>循环执行列表，点击后会循环执行列表中的所有指令，再点击下停止执行指令。</DIV>
+  <LI>
+<DIV>单次执行列表中的所有指令，点击一次就执行一次。</DIV>
+  <LI>
+<DIV>将列表中的所有数据保存为文件，方便下次直接打开使用。</DIV>
+  <LI>
+<DIV>打开之前保存到本地目录的列表文件。</DIV></LI></OL>
+<HR>
+
+<H1><A name=从机模式读写>从机模式读写</A></H1>
+
+<H3>写数据</H3>
+
+<P>在软件上配置为从机后，点击界面上的“写数据”，数据会写入适配器内部数据缓冲区中，这时主机端就可以通过读数据操作将从机发送数据缓冲区的数据读回，主机写数据操作界面如下图所示：</P>
+
+<P><IMG alt="" src="../图片/IIC从机写数据.png"></P>
+
+<H3>读数据</H3>
+
+<P>在软件上配置为从机后，点击界面上的“读数据”按钮，即可将从机接收数据缓冲区中的数据读到软件界面上显示，若从机接收数据缓冲区中没有数据，则不会有任何显示。</P>
+
+<P>主机发送数据给从机后，从机端并不会主动将数据显示在软件界面上，而需要手动点击“读数据”按钮才能读回数据并在主界面显示出来。</P></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

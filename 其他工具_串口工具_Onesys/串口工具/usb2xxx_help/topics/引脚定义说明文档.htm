@@ -1,0 +1,633 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>引脚定义说明文档</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(1);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../index.htm?page=引脚定义说明文档.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="概述.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="template1/btn_prev_n.gif" border="0"></a><A href="固件升级教程.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+</div>
+<div id="winchm_template_title">引脚定义说明文档</div>
+<div id="winchm_template_content">
+<H1>不带外壳版本（UTA0101,UTA0201）</H1>
+<P><IMG alt="" src="图片/USB2XXX_PIN_BASE.png"></P>
+<H2>接线说明：</H2>
+<P><STRONG>1，适配器大部分引脚都有多个功能，在使用不同的软件或者调用不同的接口函数后，就会自动分配成对应的功能；</STRONG></P>
+<P><STRONG>2，适配器上的电源输出最大电流为400mA，若外部设备功耗大于这个值，则不推荐用我们适配器上的电源供电，否则可能导致适配器工作不正常；</STRONG></P>
+<P><STRONG>3，跟其他任何设备进行连接，GND都是必须要接的，而且推荐先接GND，否则有可能会损坏适配器！</STRONG></P>
+<H1>
+<HR>
+带外壳版本(UTA0301,UTA0302)</H1>
+<P><IMG alt="" src="图片/USB2XXX_PIN_SHELL.png"></P>
+<H2>接线说明：</H2>
+<P><FONT color=#000000><STRONG>1，请注意缺口的方向位置！将适配器接口正对着自己，缺口在左边；</STRONG></FONT></P>
+<P><STRONG>2，1.8V电源接口是一个可变电压输出接口，可以通过<A 
+href="函数说明/usb_device.htm">DEV_SetPowerLevel</A>函数设置输出电压；</STRONG></P>
+<P><STRONG>3，P0到P7跟D0到D7是共用接口，比如在进行I2C监控功能的时候需要用到D0，D1接口，其实也是接到P0，P1接口上的；</STRONG></P>
+<P><STRONG>4，跟其他任何设备进行连接，GND都是必须要接的，而且推荐先接GND，否则有可能会损坏适配器！</STRONG></P>
+<H1>
+<HR>
+</H1>
+<H1>
+USB2CAN&amp;LIN基础版(UTA0401)</H1>
+<H1><IMG alt="" src="图片/USB2XXX_PIN_CAN.png"></H1>
+<H2>接线说明：</H2>
+<P><STRONG>1，使用LIN总线功能时，接LIN和GND引脚即可，GND必须接，建议先接GND，否则有烧适配器的风险；</STRONG></P>
+<P><STRONG>2，12V引脚为12V电压输出，可以给外部设备供电，若外部设备自己有电源供电，则无需连接。12V电源输出电流最大100mA，所以外部设备功率较大，则不能使用我们适配器供电；</STRONG></P>
+<P><STRONG>3，使用CAN总线功能只需要接H和L即可，无需连接GND引脚；</STRONG></P>
+<P><STRONG>4，要接入CAN总线的120欧终端电阻，只需要在上位机软件上勾选“接入120欧终端电阻”选项即可。</STRONG></P>
+<HR>
+
+<H1>USB2CAN&amp;LIN增强版和升级版(UTA0402,UTA0403,UTA0503)</H1>
+<P><IMG alt="" src="图片/USB2LIN接口定义.png"></P>
+<H2>接线说明：</H2>
+<P><STRONG>1，使用LIN总线功能时，接LIN和GND引脚即可，GND必须接，接口上的两个GND在内部是连通的；</STRONG></P>
+<P><STRONG>2，VBAT引脚为12V电压输出，可以给外部设备供电，若外部设备自己有电源供电，则无需连接。12V电源输出电流最大100mA，所以外部设备功率较大，则不能使用我们适配器供电；</STRONG></P>
+<P><STRONG>3，若LIN不是12V电压，可以在软件上关闭电压输出，然后将VBAT接到对应的电压电源上即可；</STRONG></P>
+<P><STRONG>4，使用CAN总线功能只需要接H和L即可，无需连接GND引脚；</STRONG></P>
+<P><STRONG>5，要接入CAN总线的120欧终端电阻，只需要在上位机软件上勾选“接入120欧终端电阻”选项即可。</STRONG></P>
+<P>
+<HR>
+</P>
+<H1>USB2CAN&amp;LIN串口版（UTA0404）</H1>
+<P>
+<TABLE class=MsoTableGrid 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; mso-padding-alt: 0.0000pt 5.4000pt 0.0000pt 5.4000pt; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext; mso-border-insideh: 0.5000pt solid windowtext; mso-border-insidev: 0.5000pt solid windowtext" 
+cellSpacing=0 border=1>
+  
+  <TR>
+    <TD     style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0pt" 
+      align=center><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; FONT-WEIGHT: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">引脚号</SPAN></B><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; FONT-WEIGHT: bold; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><?xml:namespace 
+      prefix = "o" ns = "urn:schemas-microsoft-com:office:office" 
+      /><o:p></o:p></SPAN></B></P></TD>
+    <TD     style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0pt" 
+      align=center><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; FONT-WEIGHT: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">名称</SPAN></B><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; FONT-WEIGHT: bold; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></B></P></TD>
+    <TD     style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0pt" 
+      align=center><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; FONT-WEIGHT: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">说明</SPAN></B><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; FONT-WEIGHT: bold; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></B></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>1</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>VBAT</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN</FONT><FONT face=宋体>工作所需电压，可以软件控制输出</FONT><FONT face=Calibri>12V</FONT><FONT face=宋体>，输出电流约</FONT><FONT face=Calibri>100mA</FONT><FONT face=宋体>，若软件上不使能内部</FONT><FONT face=Calibri>5V</FONT><FONT face=宋体>转</FONT><FONT face=Calibri>12V</FONT><FONT face=宋体>，则需要外接</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>总线电压，</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>总线才能正常工作，电压范围为</FONT><FONT face=Calibri>5~36V</FONT><FONT face=宋体>。</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>2</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN2</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN2</FONT><FONT face=宋体>数据线</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>3</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>GND</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN</FONT><FONT face=宋体>总线负极</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>4</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN1</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN1</FONT><FONT face=宋体>数据线</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>5</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>GND</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN</FONT><FONT face=宋体>总线负极</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>6</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>RS232_RX</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><A 
+      name=OLE_LINK3><FONT face=Calibri>RS232</FONT><FONT face=宋体>总线的数据接收引脚</FONT></A></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>7</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>RS232_TX</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>RS232</FONT><FONT face=宋体>总线的数据发送引脚</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>8</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>VIN-</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">外接电源负极</SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>9</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN1_H</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN1</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>H</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>10</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN1_L</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN1</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>L</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>11</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN2_H</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN2</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>H</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>12</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN2_L</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN2</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>L</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>13</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>RS485_B</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>RS485</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>B</FONT><FONT face=宋体>端</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>14</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>RS485_A</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>RS485</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>A</FONT><FONT face=宋体>端</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>15</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>VIN+</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">外接电源正极，范围为<FONT face=Calibri>7~18V</FONT><FONT face=宋体>，推荐使用</FONT><FONT face=Calibri>9V</FONT><FONT face=宋体>或者</FONT><FONT face=Calibri>12V</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR></TABLE></P>
+<HR>
+
+<H1>USB2CAN&amp;LIN按键版（UTA0405）</H1>
+<P>
+<TABLE class=MsoTableGrid 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; mso-padding-alt: 0.0000pt 5.4000pt 0.0000pt 5.4000pt; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext; mso-border-insideh: 0.5000pt solid windowtext; mso-border-insidev: 0.5000pt solid windowtext" 
+cellSpacing=0 border=1>
+  
+  <TR>
+    <TD     style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0pt" 
+      align=center><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; FONT-WEIGHT: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">引脚号</SPAN></B><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; FONT-WEIGHT: bold; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></B></P></TD>
+    <TD     style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0pt" 
+      align=center><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; FONT-WEIGHT: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">名称</SPAN></B><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; FONT-WEIGHT: bold; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></B></P></TD>
+    <TD     style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0pt" 
+      align=center><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; FONT-WEIGHT: bold; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">说明</SPAN></B><B><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; FONT-WEIGHT: bold; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></B></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>1</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>VBAT</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN</FONT><FONT face=宋体>工作所需电压，可以软件控制输出</FONT><FONT face=Calibri>12V</FONT><FONT face=宋体>，输出电流约</FONT><FONT face=Calibri>100mA</FONT><FONT face=宋体>，若软件上不使能内部</FONT><FONT face=Calibri>5V</FONT><FONT face=宋体>转</FONT><FONT face=Calibri>12V</FONT><FONT face=宋体>，则需要外接</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>总线电压，</FONT><FONT face=Calibri>LIN</FONT><FONT face=宋体>总线才能正常工作，电压范围为</FONT><FONT face=Calibri>5~36V</FONT><FONT face=宋体>。</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>2</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN2</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN2</FONT><FONT face=宋体>数据线</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>3</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>GND</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN</FONT><FONT face=宋体>总线负极</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>4</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN1</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN1</FONT><FONT face=宋体>数据线</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>5</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>GND</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>LIN</FONT><FONT face=宋体>总线负极</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>6</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>KEY_P13</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">按键<FONT face=Calibri>P13</FONT><FONT face=宋体>引脚，悬空为高电平</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>7</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>KEY_P14</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">按键<FONT face=Calibri>P14</FONT><FONT face=宋体>引脚，悬空为高电平</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>8</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>VIN-</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">外接电源负极</SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt"><FONT face=Calibri>9</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN1_H</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN1</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>H</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>10</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN1_L</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN1</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>L</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>11</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN2_H</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN2</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>H</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>12</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN2_L</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>CAN2</FONT><FONT face=宋体>总线</FONT><FONT face=Calibri>L</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>13</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>KEY_P11</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">按键<FONT face=Calibri>P11</FONT><FONT face=宋体>引脚，悬空为高电平</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>14</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>KEY_P10</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">按键<FONT face=Calibri>P10</FONT><FONT face=宋体>引脚，悬空为高电平</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 65.7pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: 0.5000pt solid windowtext; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=87>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>15</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=161>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'"><FONT face=Calibri>VIN+</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD>
+    <TD     style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 239.1pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: 0.5000pt solid windowtext; mso-border-left-alt: none; mso-border-bottom-alt: 0.5000pt solid windowtext; mso-border-right-alt: 0.5000pt solid windowtext"     vAlign=top width=318>
+      <P class=MsoNormal style="MARGIN: 0pt"><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: 宋体; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-spacerun: 'yes'">外接电源正极，范围为<FONT face=Calibri>7~18V</FONT><FONT face=宋体>，推荐使用</FONT><FONT face=Calibri>9V</FONT><FONT face=宋体>或者</FONT><FONT face=Calibri>12V</FONT></SPAN><SPAN 
+      style="FONT-SIZE: 10.5pt; FONT-FAMILY: Calibri; mso-bidi-font-family: 'Times New Roman'; mso-font-kerning: 1.0000pt; mso-fareast-font-family: 宋体"><o:p></o:p></SPAN></P></TD></TR></TABLE><!--EndFragment--></P><!--EndFragment--></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+// This is a config file for the Display Stream Compression model
+// This config file may be used when running in "DSC 1.2 mode"
+// Use test_dsc_1_1.cfg for "DSC 1.1 mode"
+DSC_VERSION_MINOR	2		// DSC 1.2 mode
+
+///////////////////////////////////////////////////////////////////////////
+// DSC encode/decode parameters
+
+//SLICE_WIDTH   495		// If commented out, one slice per line. To use more than one slice per line,
+                        // set to desired slice width. For example, for 2 equal slices per line, set
+						// SLICE_WIDTH = picture width / 2
+//SLICE_HEIGHT   192	// To set to one slice per picture, comment out this line. To avoid extra padding bits,
+                        // ensure that picture height is a multiple of SLICE_HEIGHT. For best picture quality,
+						// SLICE_HEIGHT should be at least 100 lines
+
+BLOCK_PRED_ENABLE    1  // To disable block prediction, set this to 0
+VBR_ENABLE     0        // Set to 1 for VBR mode
+LINE_BUFFER_BPC    16    // Truncates line buffer bit depth. For best quality, should be >= BPC + 1.
+
+// Default pixel format is RGB 4:4:4, change settings below for others:
+USE_YUV_INPUT  0     // Enables YCbCr mode. Required to be =1 for 4:2:2 and 4:2:0 modes.
+SIMPLE_422     0     // Enables simple 4:2:2 mode (same as ENABLE_422 in DSC 1.1).
+NATIVE_422     0     // Enables DSC 1.2 native 4:2:2 mode
+NATIVE_420     0     // Enables DSC 1.2 native 4:2:0 mode
+
+FULL_ICH_ERR_PRECISION	0		// 1 = Use full precision errors for ICH decision (1.2 only)
+///////////////////////////////////////////////////////////////////////////
+
+
+//  Select the RC settings file based on the BPC, BPP, and chroma sampling.
+//INCLUDE    rc_8bpc_8bpp.cfg
+//INCLUDE    rc_8bpc_10bpp.cfg
+//INCLUDE    rc_8bpc_12bpp.cfg
+//INCLUDE    rc_10bpc_8bpp.cfg
+//INCLUDE    rc_10bpc_10bpp.cfg
+//INCLUDE    rc_10bpc_12bpp.cfg
+//INCLUDE    rc_12bpc_12bpp.cfg
+//INCLUDE    rc_12bpc_8bpp.cfg
+INCLUDE    rc_12bpc_10bpp.cfg
+//INCLUDE    rc_12bpc_12bpp.cfg

@@ -1,0 +1,780 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>usb2adc</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(8);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=函数说明/usb2adc.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="usb2gpio.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="usb2dac.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="函数说明.htm">函数说明</A> &gt; </div>
+<div id="winchm_template_title">usb2adc</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+  <LI><A href="#概述"><STRONG>概述</STRONG></A>
+  <LI>
+<DIV><STRONG><A 
+  href="#ADC_Init">ADC_Init</A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A href="#ADC_Read">ADC_Read 
+  </A></STRONG></DIV>
+  <LI>
+<DIV><STRONG><A 
+  href="#ADC_StartContinueRead">ADC_StartContinueRead</A></STRONG></DIV>
+  <LI><A 
+  href="#ADC_StopContinueRead"><STRONG>ADC_StopContinueRead</STRONG></A>
+  <LI>
+<DIV><A 
+  href="#ADC_GetData"><STRONG>ADC_GetData</STRONG></A></DIV></LI></UL>
+<H1>
+<HR>
+</H1>
+<H1><A name=概述>概述</A>&nbsp;
+</H1>
+<P> 
+本文主要介绍关于USB2XXX的ADC操作相关API，在调用这些函数前需要调用设备操作相关函数，比如扫描设备，打开设备等，详情请查看《<A 
+href="usb_device.htm">设备操作相关函数说明</A> 
+》。
+</P>
+<P><STRONG>下面是本文函数可能会用到的一些宏定义：</STRONG> 
+
+</P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//定义函数返回错误代码</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;ADC_SUCCESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  (0)&nbsp;&nbsp;&nbsp;//函数执行成功</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;ADC_ERR_NOT_SUPPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  (-1)&nbsp;&nbsp;//适配器不支持该函数</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;ADC_ERR_USB_WRITE_FAIL&nbsp;&nbsp;(-2)&nbsp;&nbsp;//USB写数据失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;ADC_ERR_USB_READ_FAIL&nbsp;&nbsp;&nbsp; 
+  (-3)&nbsp;&nbsp;//USB读数据失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;ADC_ERR_CMD_FAIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  (-4)&nbsp;&nbsp;//命令执行失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;ADC_ERR_CH_NO_INIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;(-5)&nbsp;&nbsp;//该通道未初始化</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//定义连续采集数据模式下的回调函数</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">typedef</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;(WINAPI&nbsp;*PADC_GET_DATA_HANDLE)(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">short</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pData,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DataNum);</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//接收数据回掉函数</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<H1>
+<FONT color=#000000>
+<A name="ADC_Init" >
+<FONT color=#000000 >
+
+<HR>
+ADC_Init</FONT></A></FONT>
+
+</H1>
+<P><STRONG>描述：</STRONG>
+
+</P>
+<P>
+初始化配置ADC，调用该函数之后可以通过调用ADC_Read函数获取ADC的值。
+
+</P>
+<P><STRONG>原型：</STRONG>
+
+
+</P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;ADC_Init(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;Channel,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;SampleRateHz);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG>
+
+
+</P>
+<P>DevHandle&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A 
+href="usb_device.htm">USB_ScanDevice</A> 
+函数或得。</P>
+<P>Channel&nbsp; 
+需要初始化配置的ADC通道，每个bit位代表一个通道，最低位代表通道0，最多4个通道。对应通道值为1则初始化并使能该通道ADC。在调用ADC_Read函数的时候，会根据该通道值返回对应的数据。</P>
+<P>SampleRateHz&nbsp; 
+ADC采集多个数据时的采样频率，单位为Hz，最大2500000Hz。若同时使能多个通道时，其最大采样率会根据通道值降低，比如同时使能了4个通道，那么最大采样率为2500000/4=625000.</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>初始化ADC的状态，0-配置成功，其他值，配置失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2adc.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ADC_Channel&nbsp;=&nbsp;0x01;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//初始化配置ADC_IN0</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;ADC_Init(DevHandle,ADC_Channel,1000000);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"初始化配置ADC失败!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN></LI></OL>
+<P>
+<HR>
+
+<P></P>
+<H1><A name=ADC_Read>ADC_Read</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>立即获取ADC采样值，其通道通过ADC_Init函数指定。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;ADC_Read(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">short</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pData,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DataNum);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A 
+href="usb_device.htm">USB_ScanDevice</A> 
+函数获得。</P>
+<P><FONT color=#008080>pData</FONT>&nbsp; 
+数据存储缓冲区首地址，当只初始化了1路ADC时，其数据只有DataNum个，若初始化了n路ADC，则返回的数据有n*DataNum个数据，数据按照ADC_IN0,ADC_IN1,…ADC_INn这样依次排列，假如说初始化配置了ADC_IN0,ADC_IN1,ADC_IN2,DataNum为3，那么总的数据有3*3=9个，数据的顺序为ADC_IN0_DATA0,ADC_IN1_DATA0,ADC_IN2_DATA0,ADC_IN0_DATA1,ADC_IN1_DATA1,ADC_IN2_DATA1,ADC_IN0_DATA2,ADC_IN1_DATA2,ADC_IN2_DATA2.</P>
+<P><FONT color=#008080>DataNum</FONT>&nbsp; 
+每个ADC通道采集的数据数。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>获取ADC数据的状态，0-获取数据成功，其他值，获取数据失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2adc.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DataNum&nbsp;=&nbsp;10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//每通道获取10个ADC采样值</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">short 
+  </SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">Buffer[DataNum*BitCount(ADC_Channel)];</SPAN></SPAN>&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;ADC_Read(DevHandle,Buffer,DataNum);&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"Read&nbsp;adc&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">{&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">for</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;i=0;i&lt;DataNum*BitCount(ADC_Channel);i++){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"ADC&nbsp;Data[%d]&nbsp;=&nbsp;%fV\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">,i,(Buffer[i]*3.3)/4095);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+<H1><A 
+name=ADC_StartContinueRead>ADC_StartContinueRead</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>启动ADC连续采样，调用该函数后，ADC将以设置的采样率连续采集数据，直到调用ADC_StopContinueRead函数为止。可以通过传入的回调函数或者调用ADC_GetData函数获取采集到的数据。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;ADC_StartContinueRead(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;Channel,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;SampleRateHz,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;FrameSize,PADC_GET_DATA_HANDLE&nbsp;pGetDataHandle);&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A 
+href="usb_device.htm">USB_ScanDevice</A> 
+函数获得。</P>
+<P><FONT color=#008080>Channel</FONT>&nbsp; 
+需要初始化配置的ADC通道，每个bit位代表一个通道，最低位代表通道0，最多4个通道。对应通道值为1则初始化并使能该通道ADC。在调用ADC_Read函数的时候，会根据该通道值返回对应的数据。</P>
+<P><FONT color=#008080>SampleRateHz</FONT>&nbsp; 
+ADC采集多个数据时的采样频率，单位为Hz，最大2500000Hz。若同时使能多个通道时，其最大采样率会根据通道值降低，比如同时使能了4个通道，那么最大采样率为2500000/4=625000.</P>
+<P><FONT color=#008080>FrameSize</FONT>&nbsp; 
+连续采样时每次传输数据个数SampleRateHz*1000/FrameSize最好大于或者等于20。</P>
+<P><FONT color=#008080>pGetDataHandle</FONT>&nbsp; 
+读取到数据之后的回调函数，该函数需要上层代码自己实现，并在里面做对应的数据处理。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>启动连续采样的状态，0-启动成功，其他值，启动失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2adc.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;GetAdcDataHandle(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">short</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pData,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DataNum)&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">{&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"Get&nbsp;%d&nbsp;Byte&nbsp;Data\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">,DataNum);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"ADC&nbsp;Data&nbsp;=&nbsp;%fV\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">,(pData[0]*3.3)/4095);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ADC_Channel&nbsp;=&nbsp;0x01;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;ADC_StartContinueRead(DevHandle,ADC_Channel,1000000,GetAdcDataHandle);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;ADC_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"Start&nbsp;Continue&nbsp;Read&nbsp;adc&nbsp;error!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;0;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">{&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"Start&nbsp;Continue&nbsp;Read&nbsp;ADC&nbsp;ADC_SUCCESS!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+<H1><A 
+name=ADC_StopContinueRead>ADC_StopContinueRead</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>停止ADC的连续采样。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;ADC_StopContinueRead(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A 
+href="usb_device.htm">USB_ScanDevice</A> 
+函数获得。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>停止ADC连续采样状态，0-停止成功，其他值，停止失败。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2adc.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;ADC_StopContinueRead(DevHandle);&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"停止ADC连续采样失败!\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+<H1><A name=ADC_GetData>ADC_GetData</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>启动ADC连续采集数据之后，通过该函数获取存入数据缓冲区中的数据，该函数应在ADC_StopContinueRead函数被调用之前连续调用，以防止接收的数据太大，导致数据缓冲区溢出。若在启动连续获取数据函数时传入了回调函数，则无需通过该函数来获取数据。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;ADC_GetData(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">short</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pDataBuffer,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;BufferSize);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A 
+href="usb_device.htm">USB_ScanDevice</A> 
+函数获得。</P>
+<P><FONT color=#008080>pDataBuffer</FONT>&nbsp; 
+数据存储缓冲区首地址。缓冲区最小为10240个unsigned short大小，其他缓冲区大小最好按照10240整数倍分配。</P>
+<P><FONT color=#008080>BufferSize</FONT>&nbsp; 
+数据缓冲区大小，单位为short，比如数据缓冲区声明为unsigned short DataBuffer[10240],那么该值为10240.</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>从数据接收缓冲区实际获取到的数据数，单位为unsigned short数据类型大小。</P>
+<P><STRONG>示例：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2adc.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">unsigned&nbsp;<SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">short</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ReadDataBuffer[20480];&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ReadDataNum;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ReadDataNum&nbsp;=&nbsp;ADC_GetData(DevHandle,ReadDataBuffer,20480);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"获取到%d个数据\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">,ReadDataNum&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<HR></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

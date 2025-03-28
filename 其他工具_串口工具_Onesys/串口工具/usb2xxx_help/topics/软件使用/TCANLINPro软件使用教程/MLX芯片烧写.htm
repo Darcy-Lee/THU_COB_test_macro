@@ -1,0 +1,190 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>8.6 MLX芯片读写</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+
+
+
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(62);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../index.htm?page=软件使用/TCANLINPro软件使用教程/MLX芯片烧写.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="LIN固件升级.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../../template1/btn_prev_n.gif" border="0"></a><A href="CAN和LIN互转.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="../软件使用.htm">软件使用</A> &gt; <A href="TCANLINPro软件使用教程.htm">TCANLINPro软件使用教程</A> &gt; <A href="高级功能.htm">8. 高级功能</A> &gt; </div>
+<div id="winchm_template_title">8.6 MLX芯片读写</div>
+<div id="winchm_template_content">
+<H2>8.5 MLX芯片读写</H2>
+<P>点击菜单【高级功能】-&gt;【MLX芯片读写】即可打开MLX芯片读写界面，打开后如下图所示：</P>
+<P><IMG alt="" src="image/MLX芯片读写.png"></P>
+<H3>
+<HR>
+8.5.1 概述</H3>
+<P>在使用MLX81106/MLX81107/MLX81108/MLX81109/MLX80110芯片开发的车载氛围灯后，需要批量对芯片进行程序烧录，若一对一的烧录方式，其效率是比较低的，而且官方提供的烧录器价格昂贵，软件操作繁琐，且不支持一次性烧录多个芯片，基于此问题我们提供了一种更高效率，操作更简单的程序烧录解决方案，且支持自动测试。</P>
+<H3>
+<HR>
+8.5.2 硬件连接</H3>
+<P>将USB转LIN适配器的LIN口跟需要烧录程序的芯片LIN接口对接，一个USB转LIN适配器接一个或两个芯片，然后将多个USB转LIN适配器通过USB-HUB连接到电脑，如下示意图：</P>
+<P><IMG alt="" src="../../应用案例/MLX烧录示意图小.png"></P>
+<P>如上图所示，我们可以并联多个适配器实现在软件上同时烧多个芯片，这样可以大大的提高芯片程序烧写效率。目前最新版本软件支持Fast 
+LIN协议，烧写速度跟官方的LIN Master一致，但是我们支持多个适配器并行烧录，所以在烧写效率上将会大大提高。</P>
+<H3>
+<HR>8.5.3 软件使用</H3>
+<P><IMG alt="" src="../../应用案例/MLX芯片烧写.png"></P>
+<P><STRONG>1，烧写设备列表</STRONG></P>
+<P>烧写设备列表是在打开软件时根据当前连接到计算机的LIN适配器自动生成的，连接了多少个设备，那么就会自动生成对应数量的烧写列表；</P>
+<P>在每个烧写列表前有个勾选项，若当前通道不使用，则可以去掉勾选，在进行一键烧写的时候就不会对该通道进行任何操作；</P>
+<P>节点数即为当前通道LIN总线上所连接的MLX芯片数量，若当前只接了一个芯片，则设置为1即可，若设置大于1，则在烧录数据之前会自动分配节点地址，然后根据节点地址依次烧录；</P>
+<P>点击【写入】按钮可以手动烧写当前通道芯片；</P>
+<P><STRONG>2，测试文件列表</STRONG></P>
+<P>当芯片烧写完毕后，若在此处添加了测试文件，那么适配器会自动发送测试文件里面的LIN数据，比如可以在文件中编辑点亮LED的指令，芯片烧写完毕后就会自动点亮LED。测试列表文件在TCANLINPro软件的【发送LIN数据】-&gt;【普通发送】界面进行编辑。</P>
+<P><STRONG>3，写数据设置</STRONG></P>
+<P>选择引导程序，该程序为MLX官方提供的引导程序，可以找MLX官方代理索取；</P>
+<P>用户程序，为用户自己写的氛围灯功能程序，该文件一般向芯片程序开发人员索取；</P>
+<P>NVRAM文件，为芯片内部NVRAM/EEPROM区域数据文件，若此处为空，则不烧录NVRAM/EEPROM区域数据；</P>
+<P>日志文件，若需要记录烧录日志，那么选择日志文件保存路径即可；</P>
+<P>速度设置，目前速度设置范围为20Kbps到50Kbps，速度越低，烧写数据更不容易出错，但是烧写速度越慢，推荐最大设置为40Kbps；</P>
+<P>烧写次数，点击【一键烧写】后，会根据烧写次数进行烧写，每烧写完一次，剩余次数减一，直到烧写次数为0为止，每次烧写之间的时间间隔可设置；</P>
+<P><STRONG>4，读数据设置</STRONG></P>
+<P>读芯片数据，每次只能读取指定通道数据，可根据需求读取用户程序或者NVRAM/EEPROM数据，若芯片被设置为读保护，则无法读出数据；</P>
+<P>选择数据存储文件路径和名称后，设置好起始地址和读数据字节数（都为十六进制）后，点击【读出】就可以将芯片中的数据读到所选择的文件中，文件类型可选择hex文件和bin文件。</P></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

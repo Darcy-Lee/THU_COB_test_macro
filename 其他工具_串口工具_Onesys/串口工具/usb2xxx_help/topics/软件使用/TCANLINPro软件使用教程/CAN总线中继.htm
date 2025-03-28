@@ -1,0 +1,185 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>8.3 CAN总线中继</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+
+
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(59);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../index.htm?page=软件使用/TCANLINPro软件使用教程/CAN总线中继.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="CAN过滤设置.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../../template1/btn_prev_n.gif" border="0"></a><A href="CAN固件升级.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="../软件使用.htm">软件使用</A> &gt; <A href="TCANLINPro软件使用教程.htm">TCANLINPro软件使用教程</A> &gt; <A href="高级功能.htm">8. 高级功能</A> &gt; </div>
+<div id="winchm_template_title">8.3 CAN总线中继</div>
+<div id="winchm_template_content">
+<H2>8.3 CAN总线中继</H2>
+<P>点击菜单【高级功能】-&gt;【CAN总线中继】即可打开CAN中继界面，打开后如下图所示：</P>
+<P><IMG alt="" src="image/CAN总线中继.png"></P>
+<P><STRONG>转换规则说明：</STRONG></P>
+<P>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+cellPadding=2 width="100%" border=1>
+  
+  <TR>
+    <TD>&nbsp;ConvertType</TD>
+    <TD>&nbsp;转换说明</TD></TR>
+  <TR>
+    <TD>&nbsp;CAN1-&gt;CAN2</TD>
+    <TD>&nbsp;接收到CAN1帧之后，先根据规则对比数据（对比CAN1_ID,CAN1_Type,CAN1_IDE,CAN1_RTR,CAN1_Data(留空就不对比数据)），若条件满足，则根据DataType配置进行数据转发，若是原始转发，则收到CAN1什么数据就转发什么数据，若是特定数据，则发送CAN2_Data里面的数据。</TD></TR>
+  <TR>
+    <TD>&nbsp;CAN1&lt;-CAN2</TD>
+    <TD>&nbsp;接收到CAN2帧之后，先根据规则对比数据（对比CAN2_ID,CAN2_Type,CAN2_IDE,CAN2_RTR,CAN2_Data(留空就不对比数据)），若条件满足，则根据DataType配置进行数据转发，若是原始转发，则收到CAN2什么数据就转发什么数据，若是特定数据，则发送CAN1_Data里面的数据。</TD></TR>
+  <TR>
+    <TD>&nbsp;CAN1&lt;-&gt;CAN2</TD>
+    <TD>&nbsp;转换规则跟前两条一样，收到CAN1数据后向CAN2转发，收到CAN2数据后，向CAN1转发。</TD></TR></TABLE></P>
+<P>编辑好转换数据后，点击【在线转换】会弹出如下界面：</P>
+<P><IMG alt="" src="image/CAN中继类型配置.png"></P>
+<P>转换类型分【实时转换】和【在线转换】：</P>
+<P>【在线转换】——在线转换就是转换逻辑在上位机中实现，上位机收到CAN数据后，再根据转换规则来实现数据的转换，使用此方式实时性比较差，但是可以完整的看到CAN1和CAN2两端收发的数据，这种转换适用于数据速度不是很快，但是要完整查看转换数据的情况。</P>
+<P>【实时转换】——转换逻辑在适配器内部实现，实时性高，但是转发之后的数据在上位机软件中无法看到，若【中继类型】选择的是【自定义转换数据】，那么就会按照转换规则表里面的转换规则对数据进行转换，若是设置的【CAN1-&gt;CAN2】，那么CAN1收到的数据会直接通过CAN2转发出去，若是设置的【CAN1&lt;-CAN2】,那么CAN2收到数据之后会通过CAN1完整的转发出去，若是设置的【CAN1&lt;-&gt;CAN2】,则收到CAN1后通过CAN2转发，收到CAN2后通过CAN1转发。</P>
+<P><STRONG>离线操作说明：</STRONG></P>
+<P>若需要脱离上位机进行离线转换，可以点击【写入设备】将数据写入适配器，然后适配器通过普通的USB充电器供电，大概10秒后就会自动进入离线中继模式。</P>
+<P>点击【从设备读出】按钮，可以将写入设备的转换数据读出，并在列表中显示。</P>
+<P><STRONG>其他操作说明：</STRONG></P>
+<P>点击【新增一行】可以新增一行规则数据，点击【清空列表】，可以将规则列表中的数据清空，点击【打开文件】可以导入之前导出的文件，点击【保存文件】可以将列表中的数据导出为文件，方便下次导入使用。</P></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

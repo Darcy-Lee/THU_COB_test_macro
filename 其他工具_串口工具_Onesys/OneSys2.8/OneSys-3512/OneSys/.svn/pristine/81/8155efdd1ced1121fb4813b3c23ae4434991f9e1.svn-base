@@ -1,0 +1,24 @@
+// This is a config file for the Display Stream Compression model
+// This config file may be used when running in "DSC 1.1 mode"
+// DSC encode parameters
+
+DSC_VERSION_MINOR	1		// DSC 1.1 mode
+
+//SLICE_WIDTH	720			// If commented out, one slice per line. To use more than one slice per line,
+							// set to desired slice width. For example, for 2 equal slices per line, set
+							// SLICE_WIDTH = picture width / 2
+
+//SLICE_HEIGHT	40			// To set to one slice per picture, comment out this line. To avoid extra padding bits,
+							// ensure that picture height is a multiple of SLICE_HEIGHT. For best picture quality,
+							// SLICE_HEIGHT should be at least 100 lines
+
+BLOCK_PRED_ENABLE	1		// To disable block prediction, set this to 0
+VBR_ENABLE	0				// Set to 1 for VBR mode
+LINE_BUFFER_BPC	9			// Truncates line buffer bit depth. For best quality, should be >= BPC + 1.
+
+// Default pixel format is RGB 4:4:4, change settings below for others:
+USE_YUV_INPUT	0			// Enables YCbCr mode. Required to be =1 for 4:2:2 and 4:2:0 modes.
+							// !! Must be = 1 if ENABLE_422 = 1
+ENABLE_422	0				// Enables simple 4:2:2 mode (same as ENABLE_422 in DSC 1.1).
+
+INCLUDE	ICNA3610_rc_8bpc_8bpp.cfg	// Select the RC settings file based on the BPC, BPP, and chroma sampling.

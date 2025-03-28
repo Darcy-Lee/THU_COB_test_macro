@@ -1,0 +1,853 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>usb2gpio</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(7);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=函数说明/usb2gpio.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="usb_device.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="usb2adc.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="函数说明.htm">函数说明</A> &gt; </div>
+<div id="winchm_template_title">usb2gpio</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+  <LI>
+<DIV><STRONG><A href="#概述">概述</A></STRONG></DIV></LI>
+  <LI>
+<DIV><STRONG><A 
+  href="#GPIO_SetInput">GPIO_SetInput</A></STRONG></DIV></LI>
+  <LI>
+<DIV><STRONG><A 
+  href="#GPIO_SetOutput">GPIO_SetOutput</A></STRONG></DIV></LI>
+  <LI>
+<DIV><STRONG><A 
+  href="#GPIO_SetOpenDrain">GPIO_SetOpenDrain</A></STRONG></DIV></LI>
+  <LI>
+<DIV><STRONG><A 
+  href="#GPIO_Write">GPIO_Write</A></STRONG></DIV></LI>
+  <LI>
+<DIV><STRONG><A 
+  href="#GPIO_Read">GPIO_Read</A></STRONG></DIV></LI></UL>
+<HR>
+<H1><A name=概述>概述</A></H1>
+<P>本文主要介绍关于USB2XXX的GPIO操作相关函数，使用这些函数可以控制适配器上P0到P15引脚输出高低电平，或者读取这些引脚电平。在调用这些函数前需要调用设备操作相关函数，比如扫描设备，打开设备等，详情请查看《<A 
+href="usb_device.htm">设备操作相关函数说明</A>》。</P>
+<P><STRONG>下面是本文函数可能会用到的一些宏定义：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//定义函数返回错误代码</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;GPIO_SUCCESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;(0)&nbsp;&nbsp;&nbsp;//函数执行成功</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;GPIO_ERR_NOT_SUPPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  (-1)&nbsp;&nbsp;//适配器不支持该函数</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;GPIO_ERR_USB_WRITE_FAIL&nbsp;&nbsp;(-2)&nbsp;&nbsp;//USB写数据失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;GPIO_ERR_USB_READ_FAIL&nbsp;&nbsp;&nbsp;(-3)&nbsp;&nbsp;//USB读数据失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;GPIO_ERR_CMD_FAIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;(-4)&nbsp;&nbsp;//命令执行失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//上下拉电阻配置</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;GPIO_PUPD_NOPULL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0x00&nbsp;&nbsp;&nbsp;&nbsp;//没有上拉下拉</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;GPIO_PUPD_UP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0x01&nbsp;&nbsp;&nbsp;&nbsp;//使能上拉</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;GPIO_PUPD_DOWN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  0x02&nbsp;&nbsp;&nbsp;&nbsp;//使能下拉</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P>
+<P>
+<HR>
+
+<P></P>
+<H1><A name=GPIO_SetInput>GPIO_SetInput</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>将指定引脚设置为输入模式，设置为输入模式后可以通过调用<A 
+href="#GPIO_Read">GPIO_Read</A>函数获取引脚高低电平状态。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;GPIO_SetInput(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;PinMask,&nbsp;unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;PuPd);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A 
+href="usb_device.htm">USB_ScanDevice</A> 
+函数获得。</P>
+<P><FONT color=#008080>PinMask</FONT>&nbsp; 
+指定需要设置为输入模式的引脚，该值每个bit位对应一个引脚，最低位对应P0。若对应的bit位为1，则该引脚要被设置为输入模式，为0则不影响引脚原来工作状态。</P>
+<P><FONT color=#008080>PuPd</FONT>&nbsp; 配置引脚模式，0-无上拉和下拉电阻，1-使能上拉电阻，2-使能下拉电阻。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>引脚配置状态，0-配置引脚成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2gpio.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//将P0到P7配置为上拉输入模式</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_SetInput(DeviceHandle,0x00FF,GPIO_PUPD_UP);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"配置引脚失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//将P8到P15配置为下拉输入模式</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_SetInput(DeviceHandle,0xFF00,GPIO_PUPD_DOWN);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"配置引脚失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR>
+
+<P></P>
+<H1><A name=GPIO_SetOutput>GPIO_SetOutput</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>将指定引脚设置为输出模式，设置为输出模式后，可以通过调用<A 
+href="#GPIO_Write">GPIO_Write</A>函数将指定引脚设置为高电平或者低电平。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;GPIO_SetOutput(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;PinMask,&nbsp;unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;PuPd);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 
+设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm">USB_ScanDevice</A>函数获得。</P>
+<P><FONT color=#008080>PinMask</FONT>&nbsp; 
+指定需要设置为输出模式的引脚，该值每个bit位对应一个引脚，最低位对应P0，对应的bit位为1，则该引脚要被设置为输出模式，为0则不影响引脚原来工作状态。</P>
+<P><FONT color=#008080>PuPd</FONT>&nbsp; 
+配置引脚模式，0-无上拉和下拉电阻，1-使能上拉电阻，2-使能下拉电阻。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>引脚配置状态，0-配置引脚成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2gpio.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//将P0到P7配置为上拉输出模式</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_SetOutput(DeviceHandle,0x00FF,GPIO_PUPD_UP);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"配置引脚失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//将P8到P15配置为下拉输出模式</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_SetOutput(DeviceHandle,0xFF00,GPIO_PUPD_DOWN);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"配置引脚失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN></LI></OL>
+<H1>
+<HR>
+<A name=GPIO_SetOpenDrain>GPIO_SetOpenDrain</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>将指定引脚设置为开漏模式，在该模式下，引脚可以当双向引脚使用。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;GPIO_SetOpenDrain(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;PinMask,&nbsp;unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;PuPd);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 
+设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm">USB_ScanDevice</A>函数获得。</P>
+<P><FONT color=#008080>PinMask</FONT>&nbsp; 
+指定需要设置为开漏模式的引脚，该值每个bit位对应一个引脚，最低位对应P0，对应的bit位为1，则该引脚要被设置为开漏模式，为0则不影响引脚原来工作状态。</P>
+<P><FONT color=#008080>PuPd</FONT>&nbsp; 
+配置引脚模式，0-无上拉或者下拉电阻，1-使能上拉电阻，2-使能下拉电阻。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>引脚配置状态，0-配置引脚成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2gpio.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//将P4到P11配置为上拉开漏模式，开漏模式下需要使能内部上拉电阻或者外接上拉电阻，否则无法输出高电平</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_SetOpenDrain(DeviceHandle,0x0FF0,GPIO_PUPD_UP);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"配置引脚失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"></SPAN></LI></OL>
+<H1>
+<HR>
+<A name=GPIO_Write>GPIO_Write</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>当GPIO引脚被配置为输出模式时，设置引脚输出高电平或者低电平。</P>
+<P><STRONG>原型：</STRONG></P>
+<P><SPAN class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;WINAPI&nbsp;GPIO_Write(</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;PinMask,&nbsp;unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;PinValue);&nbsp;</SPAN></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle&nbsp;</FONT> 
+设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm">USB_ScanDevice</A>函数获得。</P>
+<P><FONT color=#008080>PinMask</FONT>&nbsp; 
+指定需要输出数据的引脚，该值每个bit位对应一个引脚，最低位对应P0。对应的bit位为1，则该引脚要根据PinValue对应位的值输出对应的电平状态。对应的bit位为0，则不影响该引脚的电平状态。</P>
+<P><FONT color=#008080>PinValue&nbsp;</FONT> 
+根据PinMask的值控制引脚输出对应的电平状态，该数据每个bit位对应一个引脚，最低bit位对应P0，若对应的bit位为1且PinMask的对应bit位为1则该引脚输出高电平，若对应bit位为0且PinMask的对应位为1则该引脚输出低电平，否则不影响引脚输出的电平状态。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>控制引脚输出数据的状态，0-设置成功，若小于0则设置失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2gpio.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//将P0到P7输出高电平，P8到P15输出低电平</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_Write(DeviceHandle,0xFFFF,0x00FF);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"控制引脚失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//将P0到P7输出低电平，P8到P15输出高电平</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_Write(DeviceHandle,0xFFFF,0xFF00);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"控制引脚失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//将P0到P7输出高电平，其他引脚保留原来的电平状态</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_Write(DeviceHandle,0x00FF,0x00FF);&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"控制引脚失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN></LI></OL>
+<H1>
+<HR>
+<A name=GPIO_Read>GPIO_Read</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>当GPIO引脚被配置为输入模式时，通过该函数获取管脚输入的电平状态。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;GPIO_Read(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;PinMask,&nbsp;unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pPinValue);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 
+设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm">USB_ScanDevice</A>函数获得。</P>
+<P><FONT color=#008080>PinMask</FONT>&nbsp; 
+指定需要获取输入数据的引脚，该值每个bit位对应一个引脚，最低位对应P0。对应的bit位为1，则pPinValue会返回引脚的电平状态，否则不返回状态。</P>
+<P><FONT color=#008080>pPinValue</FONT>&nbsp; 
+获取引脚电平状态的数据指针。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>获取引脚输入数据的状态，0-设置成功，若小于0则设置失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;&lt;stdio.h&gt;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#include&nbsp;"usb2gpio.h"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ret;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">unsigned&nbsp;<SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;PinValue;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//获取P0到P8引脚的电平状态</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">ret&nbsp;=&nbsp;GPIO_Read(DeviceHandle,0x00FF,&amp;PinValue);&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(ret&nbsp;!=&nbsp;GPIO_SUCCESS){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"获取引脚状态失败\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">return</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">;&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">{&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">for</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;i=0;i&lt;8;i++){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">if</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">((PinValue&amp;(1&lt;&lt;i))!=0x00){&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"P[%d]为高电平\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">,i);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<SPAN 
+  class=keyword 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(86,151,217); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">else</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">{&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<SPAN 
+  class=string 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: red; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">"P[%d]为低电平\n"</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">,i);&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">}&nbsp;&nbsp;</SPAN></LI></OL>
+<HR></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

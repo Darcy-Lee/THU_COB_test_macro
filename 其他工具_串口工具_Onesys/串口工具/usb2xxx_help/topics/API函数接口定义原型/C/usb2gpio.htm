@@ -1,0 +1,317 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>usb2gpio.h</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13pt;
+    font-weight: 500;
+}
+</style>
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+<style type="text/css"> .hll { background-color: #ffffcc }</style>
+<style type="text/css">  { background: #ffffff; }</style>
+<style type="text/css"> .c { color: #177500 } </style>
+<style type="text/css"> .err { color: #000000 } </style>
+<style type="text/css"> .k { color: #A90D91 } </style>
+<style type="text/css"> .l { color: #1C01CE } </style>
+<style type="text/css"> .n { color: #000000 } </style>
+<style type="text/css"> .o { color: #000000 } </style>
+<style type="text/css"> .ch { color: #177500 } </style>
+<style type="text/css"> .cm { color: #177500 } </style>
+<style type="text/css"> .cp { color: #633820 } </style>
+<style type="text/css"> .cpf { color: #177500 } </style>
+<style type="text/css"> .c1 { color: #177500 } </style>
+<style type="text/css"> .cs { color: #177500 } </style>
+<style type="text/css"> .kc { color: #A90D91 } </style>
+<style type="text/css"> .kd { color: #A90D91 } </style>
+<style type="text/css"> .kn { color: #A90D91 } </style>
+<style type="text/css"> .kp { color: #A90D91 } </style>
+<style type="text/css"> .kr { color: #A90D91 } </style>
+<style type="text/css"> .kt { color: #A90D91 } </style>
+<style type="text/css"> .ld { color: #1C01CE } </style>
+<style type="text/css"> .m { color: #1C01CE } </style>
+<style type="text/css"> .s { color: #C41A16 } </style>
+<style type="text/css"> .na { color: #836C28 } </style>
+<style type="text/css"> .nb { color: #A90D91 } </style>
+<style type="text/css"> .nc { color: #3F6E75 } </style>
+<style type="text/css"> .no { color: #000000 } </style>
+<style type="text/css"> .nd { color: #000000 } </style>
+<style type="text/css"> .ni { color: #000000 } </style>
+<style type="text/css"> .ne { color: #000000 } </style>
+<style type="text/css"> .nf { color: #000000 } </style>
+<style type="text/css"> .nl { color: #000000 } </style>
+<style type="text/css"> .nn { color: #000000 } </style>
+<style type="text/css"> .nx { color: #000000 } </style>
+<style type="text/css"> .py { color: #000000 } </style>
+<style type="text/css"> .nt { color: #000000 } </style>
+<style type="text/css"> .nv { color: #000000 } </style>
+<style type="text/css"> .ow { color: #000000 } </style>
+<style type="text/css"> .mb { color: #1C01CE } </style>
+<style type="text/css"> .mf { color: #1C01CE } </style>
+<style type="text/css"> .mh { color: #1C01CE } </style>
+<style type="text/css"> .mi { color: #1C01CE } </style>
+<style type="text/css"> .mo { color: #1C01CE } </style>
+<style type="text/css"> .sa { color: #C41A16 } </style>
+<style type="text/css"> .sb { color: #C41A16 } </style>
+<style type="text/css"> .sc { color: #2300CE } </style>
+<style type="text/css"> .dl { color: #C41A16 } </style>
+<style type="text/css"> .sd { color: #C41A16 } </style>
+<style type="text/css"> .s2 { color: #C41A16 } </style>
+<style type="text/css"> .se { color: #C41A16 } </style>
+<style type="text/css"> .sh { color: #C41A16 } </style>
+<style type="text/css"> .si { color: #C41A16 } </style>
+<style type="text/css"> .sx { color: #C41A16 } </style>
+<style type="text/css"> .sr { color: #C41A16 } </style>
+<style type="text/css"> .s1 { color: #C41A16 } </style>
+<style type="text/css"> .ss { color: #C41A16 } </style>
+<style type="text/css"> .bp { color: #5B269A } </style>
+<style type="text/css"> .fm { color: #000000 } </style>
+<style type="text/css"> .vc { color: #000000 } </style>
+<style type="text/css"> .vg { color: #000000 } </style>
+<style type="text/css"> .vi { color: #000000 } </style>
+<style type="text/css"> .vm { color: #000000 } </style>
+<style type="text/css"> .il { color: #1C01CE } </style>
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(92);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../index.htm?page=API函数接口定义原型/C/usb2gpio.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="usb2ew.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../../template1/btn_prev_n.gif" border="0"></a><A href="usb2iic.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="../函数原型.htm">函数原型</A> &gt; </div>
+<div id="winchm_template_title">usb2gpio.h</div>
+<div id="winchm_template_content">
+<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  ******************************************************************************</span>
+<span class="cm">  * @file    usb2gpio.h</span>
+<span class="cm">  * $Author: wdluo $</span>
+<span class="cm">  * $Revision: 447 $</span>
+<span class="cm">  * $Date:: 2013-06-29 18:24:57 +0800 #$</span>
+<span class="cm">  * @brief   usb2gpio相关函数和数据类型定义.</span>
+<span class="cm">  ******************************************************************************</span>
+<span class="cm">  * @attention</span>
+<span class="cm">  *</span>
+<span class="cm">  *&lt;center&gt;&lt;a href=&quot;http:\\www.toomoss.com&quot;&gt;http://www.toomoss.com&lt;/a&gt;&lt;/center&gt;</span>
+<span class="cm">  *&lt;center&gt;All Rights Reserved&lt;/center&gt;&lt;/h3&gt;</span>
+<span class="cm">  * </span>
+<span class="cm">  ******************************************************************************</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="cp">#ifndef __USB2GPIO_H_</span>
+<span class="cp">#define __USB2GPIO_H_</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+<span class="cp">#ifndef OS_UNIX</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Windows.h&gt;</span><span class="cp"></span>
+<span class="cp">#else</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#ifndef WINAPI</span>
+<span class="cp">#define WINAPI</span>
+<span class="cp">#endif</span>
+<span class="cp">#endif</span>
+
+
+<span class="c1">//定义函数返回错误代码</span>
+<span class="cp">#define GPIO_SUCCESS             (0)   </span><span class="c1">//函数执行成功</span>
+<span class="cp">#define GPIO_ERR_NOT_SUPPORT     (-1)  </span><span class="c1">//适配器不支持该函数</span>
+<span class="cp">#define GPIO_ERR_USB_WRITE_FAIL  (-2)  </span><span class="c1">//USB写数据失败</span>
+<span class="cp">#define GPIO_ERR_USB_READ_FAIL   (-3)  </span><span class="c1">//USB读数据失败</span>
+<span class="cp">#define GPIO_ERR_CMD_FAIL        (-4)  </span><span class="c1">//命令执行失败</span>
+
+<span class="c1">//上下拉电阻配置</span>
+<span class="cp">#define GPIO_PUPD_NOPULL        0x00    </span><span class="c1">//没有上拉下拉</span>
+<span class="cp">#define GPIO_PUPD_UP            0x01    </span><span class="c1">//使能上拉</span>
+<span class="cp">#define GPIO_PUPD_DOWN          0x02    </span><span class="c1">//使能下拉</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="cp">#endif</span>
+<span class="cm">/**</span>
+<span class="cm">  * @brief  将GPIO引脚设置为输入模式</span>
+<span class="cm">  * @param  DevHandle 设备索引号</span>
+<span class="cm">  * @param  PinMask 需要设置为输入模式的引脚，每个bit位代表一个引脚，对应bit位为1时改引脚对设置有效，最低位为P0</span>
+<span class="cm">  * @param  PuPd 0-浮空输入，无上拉或者下拉，1-上拉输入，2-下拉输入</span>
+<span class="cm">  * @retval 函数执行状态，小于0函数执行出错</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="nf">GPIO_SetInput</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">DevHandle</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinMask</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">PuPd</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/**</span>
+<span class="cm">  * @brief  将GPIO引脚设置为输出模式</span>
+<span class="cm">  * @param  DevHandle 设备索引号</span>
+<span class="cm">  * @param  PinMask 需要设置为输出模式的引脚，每个bit位代表一个引脚，对应bit位为1时改引脚对设置有效，最低位对应P0</span>
+<span class="cm">  * @param  PuPd 0-推挽输出，无上拉或者下拉，1-上拉输出，2-下拉输出</span>
+<span class="cm">  * @retval 函数执行状态，小于0函数执行出错</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="nf">GPIO_SetOutput</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">DevHandle</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinMask</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">PuPd</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/**</span>
+<span class="cm">  * @brief  将GPIO引脚设置为开漏模式，该模式下可作为双向引脚</span>
+<span class="cm">  * @param  DevHandle 设备索引号</span>
+<span class="cm">  * @param  PinMask 需要设置为开漏模式的引脚，每个bit位代表一个引脚，对应bit位为1时改引脚对设置有效，最低位对应P0</span>
+<span class="cm">  * @param  PuPd 0-内部无上拉或者下拉，1-使能上拉，2-使能下拉</span>
+<span class="cm">  * @retval 函数执行状态，小于0函数执行出错</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="nf">GPIO_SetOpenDrain</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">DevHandle</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinMask</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">PuPd</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/**</span>
+<span class="cm">  * @brief  设置GPIO引脚的输出状态</span>
+<span class="cm">  * @param  DevHandle 设备索引号</span>
+<span class="cm">  * @param  PinMask 需要输出状态的引脚，每个bit位代表一个引脚，对应bit位为1时改引脚对设置有效，最低位对应P0</span>
+<span class="cm">  * @param  PinValue 对应引脚的状态，每个bit位代表一个引脚，对应bit位为1输出高电平，为0输出低电平，最低位对应P0</span>
+<span class="cm">  * @retval 函数执行状态，小于0函数执行出错</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="nf">GPIO_Write</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">DevHandle</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinMask</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinValue</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/**</span>
+<span class="cm">  * @brief  获取GPIO引脚的输入状态</span>
+<span class="cm">  * @param  DevHandle 设备索引号</span>
+<span class="cm">  * @param  PinMask 需要获取状态的引脚，每个bit位代表一个引脚，对应bit位为1时改引脚对设置有效，最低位对应P0</span>
+<span class="cm">  * @param  pPinValue 对应引脚的状态，每个bit位代表一个引脚，对应bit位为1引脚为高电平，为0引脚为低电平，最低位对应P0</span>
+<span class="cm">  * @retval 函数执行状态，小于0函数执行出错</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="nf">GPIO_Read</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">DevHandle</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinMask</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pPinValue</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/**</span>
+<span class="cm">  * @brief  控制GPIO输出高脉冲</span>
+<span class="cm">  * @param  DevHandle 设备索引号</span>
+<span class="cm">  * @param  PinMask 需要获取状态的引脚，每个bit位代表一个引脚，对应bit位为1时改引脚对设置有效，最低位对应P0</span>
+<span class="cm">  * @param  PulseWidthUs 高脉冲宽度，单位为微秒</span>
+<span class="cm">  * @param  PulsePeriodUs 脉冲输出周期，单位为为微秒，必须大于等于PulseWidthUs</span>
+<span class="cm">  * @param  PulseNum 脉冲输出个数</span>
+<span class="cm">  * @retval 函数执行状态，小于0函数执行出错</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="nf">GPIO_SendPulses</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">DevHandle</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinMask</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PulseWidthUs</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PulsePeriodUs</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PulseNum</span><span class="p">);</span><span class="w"></span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="p">}</span><span class="w"></span>
+<span class="cp">#endif</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

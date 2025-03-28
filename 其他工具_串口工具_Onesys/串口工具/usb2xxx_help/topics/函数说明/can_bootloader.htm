@@ -1,0 +1,652 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>can_bootloader</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(23);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../index.htm?page=函数说明/can_bootloader.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="i2c_sniffer.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../template1/btn_prev_n.gif" border="0"></a><A href="LDFDecoder.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="函数说明.htm">函数说明</A> &gt; </div>
+<div id="winchm_template_title">can_bootloader</div>
+<div id="winchm_template_content">
+<H1>目录</H1>
+<UL>
+<LI>
+<DIV><STRONG><A href="#概述" >概述</A></STRONG></DIV>
+<LI>
+<DIV><STRONG><A 
+  href="#CAN_BOOT_Init">CAN_BOOT_Init</A></STRONG><STRONG></STRONG></DIV>
+<LI>
+<DIV><STRONG><A 
+  href="#CAN_BOOT_GetFWInfo">CAN_BOOT_GetFWInfo</A></STRONG></DIV>
+<LI>
+<DIV><STRONG><A 
+  href="#CAN_BOOT_EnterBootMode">CAN_BOOT_EnterBootMode</A></STRONG></DIV>
+<LI>
+<DIV><STRONG><A 
+  href="#CAN_BOOT_EraseApp">CAN_BOOT_EraseApp</A></STRONG></DIV>
+<LI>
+<DIV><STRONG><A 
+  href="#CAN_BOOT_SetAddrOffset">CAN_BOOT_SetAddrOffset</A></STRONG></DIV>
+<LI>
+<DIV><STRONG><A 
+  href="#CAN_BOOT_SendAppData">CAN_BOOT_SendAppData</A></STRONG></DIV>
+<LI>
+<DIV><STRONG><A 
+  href="#CAN_BOOT_WriteAppData">CAN_BOOT_WriteAppData</A></STRONG></DIV>
+<LI>
+<DIV><STRONG><A 
+  href="#CAN_BOOT_ExecuteApp">CAN_BOOT_ExecuteApp</A></STRONG></DIV></LI></UL>
+<HR>
+
+<H1><A name=概述>概述</A></H1>
+<P>本文主要介绍关于新版本CAN 
+Bootloader接口函数，推荐使用新版本的接口函数。在调用这些函数前需要调用设备操作相关函数，比如扫描设备，打开设备等，详情请查看《<A href="usb_device.htm" >设备操作相关函数说明</A>》。</P>
+<P><STRONG>下面是本文函数可能会用到的一些宏定义：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//函数返回错误代码定义</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_SUCCESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(0)&nbsp;&nbsp;&nbsp;//函数执行成功</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_ERR_NOT_SUPPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-1)&nbsp;&nbsp;//适配器不支持该函数</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_ERR_USB_WRITE_FAIL&nbsp;&nbsp;(-2)&nbsp;&nbsp;//USB写数据失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_ERR_USB_READ_FAIL&nbsp;&nbsp;&nbsp;(-3)&nbsp;&nbsp;//USB读数据失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_ERR_CMD_FAIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-4)&nbsp;&nbsp;//命令执行失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_CONFIG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-30)&nbsp;//配置设备错误</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_SEND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-31)&nbsp;//发送数据出错</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_TIME_OUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-32)&nbsp;//超时错误</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_CMD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-33)&nbsp;//执行命令失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_BAUD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-34)&nbsp;//波特率参数自动获取失败</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_BUFFER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-35)&nbsp;//从设备返回接收数据缓冲区大小为0</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_DSIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-36)&nbsp;//单次传输数据量大于了4093字节</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_ERASE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;//固件擦除出错</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_ERASE_IN_APP&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;//当前模式为APP，不能擦除固件</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_WRITE_OUTRANGE&nbsp;3&nbsp;&nbsp;&nbsp;//当前地址超出了正常的地址范围</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_WRITE_IN_APP&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;//当前模式不能写入固件数据</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_WRITE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;//数据写入程序存储器出错</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_WRITE_OUT_ADDR&nbsp;6&nbsp;&nbsp;&nbsp;//数据长度超出了程序存储器范围&nbsp;</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;CAN_BOOT_ERR_WRITE_CRC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;//数据CRC校验出错</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//CAN&nbsp;Bootloader固件类型</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;FW_TYPE_BOOT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x55</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;FW_TYPE_APP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0xAA</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=comment 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: rgb(238,0,0); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">//CAN&nbsp;Bootloader数据收发ID类型</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;ID_TYPE_EXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x01</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN>
+  <LI 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=preprocessor 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(205,0,205); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">#define&nbsp;ID_TYPE_STD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x00</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P>
+<P>
+<HR>
+
+<P></P>
+<H1><A name=CAN_BOOT_Init>CAN_BOOT_Init</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>初始化配置CAN Bootloader接口。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;CAN_BOOT_Init(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;CANIndex,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;SendDataID,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;ReceiveDataID,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;IDType,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;BaudRate);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>CANIndex&nbsp; </FONT><FONT color=#000000>CAN通道号，取值0或者1。</FONT> </P>
+<P><FONT color=#008080>SendDataID&nbsp;&nbsp;&nbsp;</FONT><FONT color=#000000>CAN主节点（USB2CAN适配器）向从节点发送数据的帧ID，可以是标准ID或者扩展ID。</FONT> </P>
+<P><FONT color=#008080>ReceiveDataID&nbsp; </FONT><FONT color=#000000>CAN主节点（USB2CAN适配器）接收从节点返回数据的帧ID，可以是标准ID或者扩展ID。</FONT> </P>
+<P><FONT color=#008080>IDType</FONT>&nbsp; 
+帧ID类型，0-标准帧，1-扩展帧</P>
+<P><FONT color=#008080>BaudRate</FONT> 
+CAN总线波特率值，单位为Hz，比如要配置为500K，则传入500000。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0-函数执行成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<HR>
+<H1><A name=CAN_BOOT_GetFWInfo>CAN_BOOT_GetFWInfo</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>获取节点固件信息，</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;CAN_BOOT_GetFWInfo(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;CANIndex,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;NAD,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pFWType,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pFWVersion,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;TimeOutOfMs);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>CANIndex&nbsp; </FONT><FONT color=#000000>CAN通道号，取值0或者1。</FONT> </P>
+<P><FONT color=#008080>NAD</FONT> 节点地址，取值范围0x01~0x7E。</P>
+<P><FONT color=#008080>pFWType</FONT>&nbsp; 
+获取到的节点固件类型，0x55-当前节点固件为Bootloader固件，0xAA-当前固件为App固件。</P>
+<P><FONT color=#008080>pFWVersion</FONT>&nbsp; 
+固件版本号，比如值为0x0102030A，那么固件的版本为V1.2.3.10。</P>
+<P><FONT color=#008080>TimeOutOfMs</FONT>&nbsp; 
+适配器发送获取节点固件信息后，等待从节点返回信息的时间，超过这个时间后函数返回超时错误。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0-函数执行成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<HR>
+<H1><A 
+name=CAN_BOOT_EnterBootMode>CAN_BOOT_EnterBootMode</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>若当前固件为App固件，从节点收到该指令后开始运行Bootloader固件，准备固件升级。</P>
+<P><STRONG>原型：</STRONG></P>
+<P><SPAN class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'><BR 
+class=Apple-interchange-newline>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;WINAPI&nbsp;CAN_BOOT_EnterBootMode(</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;DevHandle,</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;CANIndex,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>char</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;NAD);&nbsp;&nbsp;</SPAN></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>CANIndex&nbsp; </FONT><FONT color=#000000>CAN通道号，取值0或者1。</FONT> </P>
+<P><FONT color=#008080>NAD</FONT> 节点地址，取值范围0x01~0x7E。</P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0-函数执行成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<HR>
+<H1><A name=CAN_BOOT_EraseApp>CAN_BOOT_EraseApp</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>擦除App区域的固件数据，为后面App数据的烧入做准备。</P>
+<P><STRONG>原型：</STRONG></P>
+<P><SPAN class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'><BR 
+class=Apple-interchange-newline>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;WINAPI&nbsp;CAN_BOOT_EraseApp(</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;DevHandle,</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;CANIndex,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>char</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;NAD,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;AppSizeOfByte,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;TimeOutOfMs);&nbsp;</SPAN></P>
+<P><STRONG>参数：</STRONG></P><FONT color=#008080>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; <FONT color=#000000>设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="usb_device.htm" ><FONT color=#000000>USB_ScanDevice</FONT></A><FONT color=#000000> 函数获得。</FONT> </P>
+<P><FONT color=#008080>CANIndex&nbsp; </FONT><FONT color=#000000>CAN通道号，取值0或者1。</FONT> </P>
+<P><FONT color=#008080>NAD</FONT> 
+<FONT color=#000000>节点地址，取值范围0x01~0x7E。</FONT> </P>
+<P>AppSizeOfByte&nbsp; <FONT color=#000000>需要擦除的App区域大小，单位为字节。</FONT> </P>
+<P>TimeOutOfMs&nbsp; <FONT color=#000000>发送固件擦除指令后，等待从节点返回状态信息的超时时间，一般内部存储区域擦除都比较耗时，所以这个超时时间可能得根据实际的情况设置大一点。</FONT> </P></FONT>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0-函数执行成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<HR>
+<H1><A 
+name=CAN_BOOT_SetAddrOffset>CAN_BOOT_SetAddrOffset</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>设置后续写入App数据的起始偏移地址。并获取从节点每次能接收App数据字节数大小。</P>
+<P><STRONG>原型：</STRONG></P>
+<P><SPAN class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'><BR 
+class=Apple-interchange-newline>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;WINAPI&nbsp;CAN_BOOT_SetAddrOffset(</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;DevHandle,</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;CANIndex,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>char</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;NAD,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;AddrOffset,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>short</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;*pBufferSize,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;TimeOutOfMs);&nbsp;&nbsp;</SPAN></P>
+<P><STRONG>参数：</STRONG><FONT color=#008080></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; <FONT color=#000000>设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="usb_device.htm" ><FONT color=#000000>USB_ScanDevice</FONT></A><FONT color=#000000> 函数获得。</FONT> </P>
+<P><FONT color=#008080>CANIndex&nbsp; </FONT><FONT color=#000000>CAN通道号，取值0或者1。</FONT> </P>
+<P><FONT color=#008080>NAD</FONT> 
+<FONT color=#000000>节点地址，取值范围0x01~0x7E。</FONT> </P>
+<P>AddrOffset&nbsp; <FONT color=#000000>准备写入App数据的偏移地址，注意这个不是芯片内部的实际数据存储地址，是App数据分包传输的偏移地址。</FONT> </P>
+<P>pBufferSize&nbsp; <FONT color=#000000>从节点单次能接收的最大App数据字节数，比如为1024，那么每次传输的数据就不能大于1024。</FONT> </P>
+<P>TimeOutOfMs&nbsp; <FONT color=#000000>发送固件擦除指令后，等待从节点返回状态信息的超时时间，一般内部存储区域擦除都比较耗时，所以这个超时时间可能得根据实际的情况设置大一点。</FONT> </P></FONT>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0-函数执行成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<HR>
+<H1><A 
+name=CAN_BOOT_SendAppData>CAN_BOOT_SendAppData</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>将App数据发送到从节点内部数据缓冲区中。</P>
+<P><STRONG>原型：</STRONG></P>
+<OL class=dp-cpp 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(102,102,102); PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 1px 32px; LETTER-SPACING: normal; PADDING-RIGHT: 2px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>
+  <LI class=alt 
+  style="PADDING-LEFT: 10px; BORDER-LEFT: rgb(1,150,227) 2px solid; LINE-HEIGHT: 18px"><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px"><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;WINAPI&nbsp;CAN_BOOT_SendAppData(</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DevHandle,</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">int</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;CANIndex,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;NAD,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">char</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pData,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">short</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;DataLen,unsigned&nbsp;</SPAN><SPAN 
+  class=datatypes 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">short</SPAN><SPAN 
+  style="FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; COLOR: black; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">&nbsp;*pCRC16);&nbsp;&nbsp;</SPAN></SPAN></LI></OL>
+<P><STRONG>参数：</STRONG></P><FONT color=#008080>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; <FONT color=#000000>设备句柄，本质为设备序号的低4字节，可以通过调用</FONT> <A href="usb_device.htm" ><FONT color=#000000>USB_ScanDevice</FONT></A><FONT color=#000000> 函数获得。</FONT> </P>
+<P><FONT color=#008080>CANIndex&nbsp; </FONT><FONT color=#000000>CAN通道号，取值0或者1。</FONT> </P>
+<P><FONT color=#008080>NAD</FONT> 
+<FONT color=#000000>节点地址，取值范围0x01~0x7E。</FONT> </P>
+<P>pData&nbsp; <FONT color=#000000>待发送的数据缓冲区指针。</FONT> </P>
+<P>DataLen&nbsp; <FONT color=#000000>待发送的数据字节数，注意不能大于从节点能接收的最大字节数。</FONT> </P>
+<P>pCRC16&nbsp; <FONT color=#000000>这些数据的CRC16值，用于后续数据写入时校验。</FONT> </P></FONT>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0-函数执行成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<HR>
+<H1><A 
+name=CAN_BOOT_WriteAppData>CAN_BOOT_WriteAppData</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>将从节点内部数据缓冲区中的数据写入芯片中的程序存储器中，并对数据进行校验。</P>
+<P><STRONG>原型：</STRONG></P>
+<P><SPAN class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;WINAPI&nbsp;CAN_BOOT_WriteAppData(</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;DevHandle,</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;CANIndex,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>char</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;NAD,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>short</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;CRC16,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;TimeOutOfMs);&nbsp;</SPAN></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>CANIndex&nbsp; </FONT><FONT color=#000000>CAN通道号，取值0或者1。</FONT> </P>
+<P><FONT color=#008080>NAD</FONT> 
+<FONT color=#000000>节点地址，取值范围0x01~0x7E。</FONT> </P>
+<P><FONT color=#008080>CRC16</FONT>&nbsp; <FONT color=#000000>从节点内部数据缓冲区中数据的CRC16值，可以通过<A 
+href="#CAN_BOOT_SendAppData">CAN_BOOT_SendAppData</A>函数获取到。</FONT> </P>
+<P><FONT color=#008080>TimeOutOfMs</FONT>&nbsp; <FONT color=#000000>发送该指令后，等待从节点返回状态数据的超时时间，由于固件写入可能会比较耗时，所以这个超时时间可能得根据实际的情况设置大一点。</FONT> </P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0-函数执行成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<HR>
+<H1><A name=CAN_BOOT_ExecuteApp>CAN_BOOT_ExecuteApp</A></H1>
+<P><STRONG>描述：</STRONG></P>
+<P>固件烧写完毕之后，发送该指令让固件程序从Bootloader跳转到App运行，App是否正常运行，可以通过<A 
+href="#CAN_BOOT_GetFWInfo">CAN_BOOT_GetFWInfo</A>函数来查询。</P>
+<P><STRONG>原型：</STRONG></P>
+<P><SPAN class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'><BR 
+class=Apple-interchange-newline>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;WINAPI&nbsp;CAN_BOOT_ExecuteApp(</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;DevHandle,</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>int</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;CANIndex,unsigned&nbsp;</SPAN><SPAN 
+class=datatypes 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 700; COLOR: rgb(46,139,87); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>char</SPAN><SPAN 
+style='FONT-SIZE: 12px; BORDER-TOP: 0px; FONT-FAMILY: verdana, Tahoma, "Lucida Grande", Arial, sans-serif; BORDER-RIGHT: 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; BACKGROUND-COLOR: rgb(252,252,252); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial'>&nbsp;NAD);&nbsp;&nbsp;</SPAN></P>
+<P><STRONG>参数：</STRONG></P>
+<P><FONT color=#008080>DevHandle</FONT>&nbsp; 设备句柄，本质为设备序号的低4字节，可以通过调用<A href="usb_device.htm" >USB_ScanDevice</A> 函数获得。</P>
+<P><FONT color=#008080>CANIndex&nbsp; </FONT><FONT color=#000000>CAN通道号，取值0或者1。</FONT> </P>
+<P><FONT color=#008080>NAD</FONT> 
+<FONT color=#000000>节点地址，取值范围0x01~0x7E。</FONT> </P>
+<P><STRONG>返回值：</STRONG></P>
+<P>函数执行状态，0-函数执行成功，若小于0则该函数调用失败。</P>
+<P><STRONG>示例：</STRONG>&nbsp;</P>
+<HR></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>

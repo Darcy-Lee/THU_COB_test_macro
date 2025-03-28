@@ -1,0 +1,173 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>9.4 按键功能配置</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<style>
+html {
+	overflow-y:scroll;
+}
+
+body {
+	background-image: url(../../template1/back.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+#winchm_template_button {
+	position: fixed; 
+	float: right; 
+	right: 15px; 
+	top: 15px;
+}
+
+#winchm_template_navigation {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #4A4A4A;
+	text-align: left;
+}
+
+#winchm_template_title {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #005680;
+	text-align: left;
+}
+
+#winchm_template_content{
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	width: auto  !important;
+	width: 100%;
+}
+
+
+#winchm_template_footer {
+	padding: 0px;
+	margin-top: 15px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+	margin-right: 0px;
+
+	padding-top: 7px;
+	border-width: 1px;
+	border-color: #c0c0c0;
+	border-top-style: solid;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #575757;
+	text-align: left;
+}
+
+@media print
+{
+#winchm_template_button{
+visibility:hidden;
+}
+}
+
+#winchm_template_navigation a:link	{text-decoration: none;color: 004080}
+#winchm_template_navigation a:visited  {text-decoration: none; color: #004080}
+#winchm_template_navigation a:active {text-decoration: none; color: #004080}
+#winchm_template_navigation a:hover {text-decoration: none;color: #0000FF}
+
+a:link	{text-decoration: underline; color:#0033cc}
+a:visited  {text-decoration: underline; color: #0033cc}
+a:active {text-decoration: underline; color: #0033cc }
+a:hover {text-decoration: underline;color: #ff0000;}
+
+</style>
+</head>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(70);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../../../index.htm?page=软件使用/TCANLINPro软件使用教程/9.4_按键功能配置.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<div id="winchm_template_button"><A href="CAN串口配置.htm" title="Previous topic"><img id="winchm_template_prev" alt="Previous topic" src="../../template1/btn_prev_n.gif" border="0"></a><A href="../../应用案例/应用案例.htm" title="Next topic"><img id="winchm_template_next" alt="Next topic" src="../../template1/btn_next_n.gif" border="0"></a></div>
+<div id="winchm_template_navigation">Help &gt; 
+<A href="../软件使用.htm">软件使用</A> &gt; <A href="TCANLINPro软件使用教程.htm">TCANLINPro软件使用教程</A> &gt; <A href="工具集合.htm">9. 工具集合</A> &gt; </div>
+<div id="winchm_template_title">9.4 按键功能配置</div>
+<div id="winchm_template_content">
+<H2>9.4&nbsp;按键功能配置</H2>
+<P>点击菜单【工具集合】-&gt;【按键功能配置】即可打开按键功能配置界面，打开后如下图所示：</P>
+<P><IMG alt="" src="image/按键功能配置.png"></P>
+<P>在适配器的LIN引脚和GND引脚之间接入一个常开按键，就可以用按键来控制其他CAN/LIN通道发送CAN/LIN数据，并且不需要上位机软件，只需要将适配器通过一个USB充电器给适配器供电就能实现按键控制CAN/LIN数据发送。</P>
+<UL>
+  <LI>
+<DIV 
+  >按键引脚根据实际硬件连接来选择，若选择为【无】，那么就是不接任何按键，直接上电后自动发送数据；</DIV></LI>
+  <LI>
+<DIV>数据类型就是你要通过这个按键控制发送的数据，选择CAN或者LIN；</DIV></LI>
+  <LI>
+<DIV>发送通道就是选择通过这个按键控制数据发送的通道号；</DIV></LI>
+  <LI>
+<DIV 
+  >按键触发类型根据实际需求进行选择，按键输入默认是上拉输入，所以平时是高电平，一般可以选择【下降沿】或者【低电平】触发，【下降沿】触发就是按一次发送一次，【低电平】触发就是按下的时候一直发送，放开之后不发送；</DIV></LI>
+  <LI>
+<DIV 
+  >点击【选择文件】选择需要发送的数据文件，这个文件在【发送CAN数据】-&gt;【普通发送】或者【发送LIN数据】-&gt;【普通发送】界面操作，也就是将数据添加到列表后，再导出的列表数据文件；</DIV></LI>
+  <LI>
+<DIV 
+  >点击【写入设备】，数据会写入到适配器内部数据存储区域，然后将适配器通过一个USB充电器供电，大概10秒后就会进入按键控制功能。</DIV></LI></UL></div> 
+<div id="winchm_template_footer">Copyright &copy; 2018. All rights reserved.</div>
+</body>
+</html>
